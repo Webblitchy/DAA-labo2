@@ -88,12 +88,7 @@
             android:layout_height="wrap_content"/>
     </RadioGroup>
 
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/worker_data"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone"
-        app:constraint_referenced_ids=""/>
+    <!-- Student data -->
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/student_data"
@@ -138,6 +133,67 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:inputType="numberDecimal" />
+
+    <!-- Worker data -->
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/worker_data"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:constraint_referenced_ids="
+            main_specific_workers_title,
+            main_specific_compagny_title,
+            main_specific_compagny_input,
+            main_specific_sector_title,
+            main_specific_sector_input,
+            main_specific_experience_title,
+            main_specific_experience_input
+"/>
+
+    <TextView
+        android:id="@+id/main_specific_workers_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/main_specific_workers_title"
+        android:textAllCaps="true" />
+
+    <TextView
+        android:id="@+id/main_specific_compagny_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/main_specific_compagny_title"/>
+
+    <EditText
+        android:id="@+id/main_specific_compagny_input"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/main_specific_sector_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/main_specific_sector_title"/>
+
+    <Spinner
+        android:id="@+id/main_specific_sector_input"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/main_specific_experience_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/main_specific_experience_title"/>
+
+    <EditText
+        android:id="@+id/main_specific_experience_input"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:inputType="text" />
+
+    <!-- Complementary data-->
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/complementary_data"
