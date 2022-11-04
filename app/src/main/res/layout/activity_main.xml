@@ -82,7 +82,44 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone"
-        app:constraint_referenced_ids=""/>
+        app:constraint_referenced_ids="
+            main_specific_students_title,
+            main_specific_school_title,
+            main_specific_school_input,
+            main_specific_graduationyear_title,
+            main_specific_graduationyear_input
+    "/>
+
+    <TextView
+        android:id="@+id/main_specific_students_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/main_specific_students_title"
+        android:textAllCaps="true" />
+
+    <TextView
+        android:id="@+id/main_specific_school_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/main_specific_school_title"/>
+
+    <EditText
+        android:id="@+id/main_specific_school_input"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/main_specific_graduationyear_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/main_specific_school_title"/>
+
+    <EditText
+        android:id="@+id/main_specific_graduationyear_input"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:inputType="numberDecimal" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/complementary_data"
