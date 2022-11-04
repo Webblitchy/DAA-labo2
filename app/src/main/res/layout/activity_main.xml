@@ -149,7 +149,7 @@
             main_specific_sector_input,
             main_specific_experience_title,
             main_specific_experience_input
-"/>
+    "/>
 
     <TextView
         android:id="@+id/main_specific_workers_title"
