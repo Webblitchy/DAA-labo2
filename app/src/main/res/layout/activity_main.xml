@@ -44,12 +44,18 @@
     </RadioGroup>
 
     <androidx.constraintlayout.widget.Group
-        android:id="@+id/specific_data"
+        android:id="@+id/worker_data"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone"
         app:constraint_referenced_ids=""/>
 
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/student_data"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:constraint_referenced_ids=""/>
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/complementary_data"
