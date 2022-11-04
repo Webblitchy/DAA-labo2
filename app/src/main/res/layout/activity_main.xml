@@ -21,6 +21,25 @@
         app:constraint_referenced_ids="">
 
     </androidx.constraintlayout.widget.Group>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/main_base_name_title"/>
+
+    <RadioGroup
+        android:id="@+id/occupation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/student"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <RadioButton
+            android:id="@+id/employee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </RadioGroup>
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/specific_data"
@@ -39,15 +58,5 @@
         app:constraint_referenced_ids="">
 
     </androidx.constraintlayout.widget.Group>
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
