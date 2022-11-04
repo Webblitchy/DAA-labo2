@@ -18,14 +18,41 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone"
-        app:constraint_referenced_ids="base_name_title, "/>
+        app:constraint_referenced_ids="main_base_name_title, main_base_name_input, main_base_firstname_title, main_base_name_input"/>
 
 
     <TextView
-        android:id="@+id/base_name_title"
+        android:id="@+id/main_base_name_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/main_base_name_title"/>
+    <EditText
+        android:id="@+id/main_base_name_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/main_base_name_title"
+        android:inputType="text"/>
+    <TextView
+        android:id="@+id/main_base_firstname_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/main_base_firstname_title"/>
+    <EditText
+        android:id="@+id/main_base_firstname_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/main_base_firstname_title"
+        android:inputType="text"/>
+    <TextView
+        android:id="@+id/main_base_birthdate_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/main_base_birthdate_title"/>
+    <EditText
+        android:layout_width=""
+        android:layout_height=""
+
+
 
 
     <RadioGroup
