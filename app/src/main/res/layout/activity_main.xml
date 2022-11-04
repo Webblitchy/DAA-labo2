@@ -49,11 +49,29 @@
         android:layout_height="wrap_content"
         android:text="@string/main_base_birthdate_title"/>
     <EditText
-        android:layout_width=""
-        android:layout_height=""
+        android:id="@+id/main_base_birthdate_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="none"/>
+    <ImageButton
+        android:id="@+id/cake_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/main_base_nationality_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/main_base_nationality_title"/>
+    <Spinner
+        android:id="@+id/main_base_nationality_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
-
-
+    <TextView
+        android:id="@+id/main_base_occupation_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/main_base_occupation_title"/>
 
     <RadioGroup
         android:id="@+id/occupation"
