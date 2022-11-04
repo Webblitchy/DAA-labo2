@@ -1,4 +1,4 @@
-package ch.heigvd.iict.and.labo2
+package ch.heigvd.labo2
 
 import java.text.DateFormat
 import java.util.*
