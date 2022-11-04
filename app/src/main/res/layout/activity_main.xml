@@ -18,13 +18,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone"
-        app:constraint_referenced_ids="">
+        app:constraint_referenced_ids="base_name_title, "/>
 
-    </androidx.constraintlayout.widget.Group>
+
     <TextView
+        android:id="@+id/base_name_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/main_base_name_title"/>
+
 
     <RadioGroup
         android:id="@+id/occupation"
@@ -46,17 +48,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone"
-        app:constraint_referenced_ids="">
+        app:constraint_referenced_ids=""/>
 
-    </androidx.constraintlayout.widget.Group>
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/complementary_data"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone"
-        app:constraint_referenced_ids="">
+        app:constraint_referenced_ids=""/>
 
-    </androidx.constraintlayout.widget.Group>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
