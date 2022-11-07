@@ -11,8 +11,8 @@
         android:id="@+id/barrier"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:barrierMargin="5dp"
         app:barrierDirection="end"
+        app:barrierMargin="5dp"
         app:constraint_referenced_ids="main_base_birthdate_title, main_base_firstname_title, main_base_name_title, main_base_nationality_title, main_base_occupation_title, main_specific_compagny_title, main_specific_experience_title, main_specific_graduationyear_title, main_specific_school_title, main_specific_sector_title, main_specific_students_title, main_specific_workers_title" />
 
     <androidx.constraintlayout.widget.Group
@@ -20,88 +20,95 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="visible"
-        app:constraint_referenced_ids="main_base_title, main_base_name_title, main_base_name_input, main_base_firstname_title, main_base_firstname_input"/>
+        app:constraint_referenced_ids="main_base_title, main_base_name_title, main_base_name_input, main_base_firstname_title, main_base_firstname_input, main_base_birthdate_title, main_base_birthdate_input, main_base_occupation_title, occupation, main_base_nationality_title, main_base_nationality_input" />
 
     <TextView
         android:id="@+id/main_base_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/main_base_title"
-        android:textAllCaps="true"/>
+        android:textAllCaps="true" />
 
     <TextView
         android:id="@+id/main_base_name_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/main_base_name_title"
-        app:layout_constraintTop_toBottomOf="@+id/main_base_title"/>
+        app:layout_constraintTop_toBottomOf="@+id/main_base_title" />
+
     <EditText
         android:id="@+id/main_base_name_input"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/barrier"
+        android:hint="@string/main_base_name_title"
+        android:inputType="text"
         app:layout_constraintBottom_toBottomOf="@id/main_base_name_title"
         app:layout_constraintEnd_toEndOf="parent"
-        android:hint="@string/main_base_name_title"
-        android:inputType="text"/>
+        app:layout_constraintStart_toEndOf="@id/barrier" />
 
     <TextView
         android:id="@+id/main_base_firstname_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/main_base_name_title"
-        android:text="@string/main_base_firstname_title"/>
+        android:text="@string/main_base_firstname_title"
+        app:layout_constraintTop_toBottomOf="@+id/main_base_name_title" />
+
     <EditText
         android:id="@+id/main_base_firstname_input"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_toEndOf="@id/main_base_firstname_title"
-        app:layout_constraintStart_toEndOf="@id/barrier"
+        android:hint="@string/main_base_firstname_title"
+        android:inputType="text"
         app:layout_constraintBottom_toBottomOf="@id/main_base_firstname_title"
         app:layout_constraintEnd_toEndOf="parent"
-        android:hint="@string/main_base_firstname_title"
-        android:inputType="text"/>
+        app:layout_constraintStart_toEndOf="@id/barrier" />
+
     <TextView
         android:id="@+id/main_base_birthdate_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/main_base_firstname_title"
-        android:text="@string/main_base_birthdate_title"/>
+        android:text="@string/main_base_birthdate_title"
+        app:layout_constraintTop_toBottomOf="@+id/main_base_firstname_title" />
+
     <EditText
         android:id="@+id/main_base_birthdate_input"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/barrier"
+        android:inputType="none"
         app:layout_constraintBottom_toBottomOf="@id/main_base_birthdate_title"
         app:layout_constraintEnd_toStartOf="@+id/cake_button"
-        android:inputType="none"/>
+        app:layout_constraintStart_toEndOf="@id/barrier" />
+
     <ImageButton
         android:id="@+id/cake_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/main_base_birthdate_input"
         app:layout_constraintBottom_toBottomOf="@id/main_base_birthdate_title"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/main_base_birthdate_input" />
+
     <TextView
         android:id="@+id/main_base_nationality_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/main_base_birthdate_title"
-        android:text="@string/main_base_nationality_title"/>
+        android:text="@string/main_base_nationality_title"
+        app:layout_constraintTop_toBottomOf="@+id/main_base_birthdate_title" />
+
     <Spinner
         android:id="@+id/main_base_nationality_input"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/barrier"
         app:layout_constraintBottom_toBottomOf="@id/main_base_nationality_title"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/barrier" />
 
     <TextView
         android:id="@+id/main_base_occupation_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/main_base_nationality_title"
-        android:text="@string/main_base_occupation_title"/>
+        android:text="@string/main_base_occupation_title"
+        app:layout_constraintTop_toBottomOf="@+id/main_base_nationality_title" />
 
     <RadioGroup
         android:id="@+id/occupation"
@@ -113,15 +120,15 @@
             android:id="@+id/student"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/main_base_occupation_student"/>
+            android:text="@string/main_base_occupation_student" />
+
         <RadioButton
             android:id="@+id/employee"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/main_base_occupation_worker"
-            app:layout_constraintStart_toEndOf="@+id/student"
             app:layout_constraintBottom_toBottomOf="@+id/student"
-            />
+            app:layout_constraintStart_toEndOf="@+id/student" />
     </RadioGroup>
 
     <!-- Student data -->
@@ -137,7 +144,7 @@
             main_specific_school_input,
             main_specific_graduationyear_title,
             main_specific_graduationyear_input
-    "/>
+    " />
 
     <TextView
         android:id="@+id/main_specific_students_title"
@@ -150,7 +157,7 @@
         android:id="@+id/main_specific_school_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/main_specific_school_title"/>
+        android:text="@string/main_specific_school_title" />
 
     <EditText
         android:id="@+id/main_specific_school_input"
@@ -162,7 +169,7 @@
         android:id="@+id/main_specific_graduationyear_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/main_specific_school_title"/>
+        android:text="@string/main_specific_school_title" />
 
     <EditText
         android:id="@+id/main_specific_graduationyear_input"
@@ -185,7 +192,7 @@
             main_specific_sector_input,
             main_specific_experience_title,
             main_specific_experience_input
-    "/>
+    " />
 
     <TextView
         android:id="@+id/main_specific_workers_title"
@@ -198,7 +205,7 @@
         android:id="@+id/main_specific_compagny_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/main_specific_compagny_title"/>
+        android:text="@string/main_specific_compagny_title" />
 
     <EditText
         android:id="@+id/main_specific_compagny_input"
@@ -210,7 +217,7 @@
         android:id="@+id/main_specific_sector_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/main_specific_sector_title"/>
+        android:text="@string/main_specific_sector_title" />
 
     <Spinner
         android:id="@+id/main_specific_sector_input"
@@ -221,7 +228,7 @@
         android:id="@+id/main_specific_experience_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/main_specific_experience_title"/>
+        android:text="@string/main_specific_experience_title" />
 
     <EditText
         android:id="@+id/main_specific_experience_input"
@@ -236,7 +243,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        app:constraint_referenced_ids=""/>
+        app:constraint_referenced_ids="" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
