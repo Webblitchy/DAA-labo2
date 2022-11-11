@@ -28,8 +28,7 @@
         android:text="@string/main_base_title"
         android:textAllCaps="true"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="@dimen/title_margin_top"/>
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <TextView
         android:id="@+id/main_base_name_title"
@@ -152,7 +151,7 @@
         android:id="@+id/student_data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="visible"
+        android:visibility="gone"
         app:constraint_referenced_ids="
             main_specific_students_title,
             main_specific_school_title,
