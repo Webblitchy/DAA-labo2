@@ -236,6 +236,17 @@
         android:layout_height="wrap_content"
         android:inputType="text" />
 
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier_before_complementary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:barrierMargin="5dp"
+        app:constraint_referenced_ids="occupation,
+            main_specific_graduationyear_title,
+            main_specific_experience_title"/>
+
+
     <!-- Complementary data-->
 
     <androidx.constraintlayout.widget.Group
