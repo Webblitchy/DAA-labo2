@@ -147,7 +147,7 @@
         android:id="@+id/student_data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="visible"
+        android:visibility="gone"
         app:constraint_referenced_ids="
             main_specific_students_title,
             main_specific_school_title,
@@ -204,7 +204,7 @@
         android:id="@+id/worker_data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
+        android:visibility="visible"
         app:constraint_referenced_ids="
             main_specific_workers_title,
             main_specific_compagny_title,
@@ -220,41 +220,57 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/main_specific_workers_title"
+        app:layout_constraintTop_toBottomOf="@+id/main_specific_graduationyear_title"
         android:textAllCaps="true" />
 
     <TextView
         android:id="@+id/main_specific_compagny_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/main_specific_workers_title"
         android:text="@string/main_specific_compagny_title" />
 
     <EditText
         android:id="@+id/main_specific_compagny_input"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/main_specific_compagny_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/barrier"
+        android:hint="@string/main_specific_compagny_input"
         android:inputType="text" />
 
     <TextView
         android:id="@+id/main_specific_sector_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/main_specific_compagny_title"
         android:text="@string/main_specific_sector_title" />
 
     <Spinner
         android:id="@+id/main_specific_sector_input"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/main_specific_sector_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/barrier"
+        />
 
     <TextView
         android:id="@+id/main_specific_experience_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/main_specific_sector_title"
         android:text="@string/main_specific_experience_title" />
 
     <EditText
         android:id="@+id/main_specific_experience_input"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/main_specific_experience_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/barrier"
+        android:hint="@string/main_specific_experience_input"
         android:inputType="text" />
 
     <androidx.constraintlayout.widget.Barrier

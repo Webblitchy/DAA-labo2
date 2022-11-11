@@ -34,8 +34,10 @@
 
     <string name="main_specific_workers_title">Données spécifiques (employé)</string>
     <string name="main_specific_compagny_title">Entreprise</string>
+    <string name="main_specific_compagny_input">ACME Corp</string>
     <string name="main_specific_sector_title">Secteur</string>
     <string name="main_specific_experience_title">Expérience (années)</string>
+    <string name="main_specific_experience_input">-12</string>
 
     <string name="sectors_empty">Sélectionner</string>
     <string-array name="sectors">
