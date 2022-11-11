@@ -78,8 +78,10 @@
 
     <string name="additional_title">Données complémentaires</string>
     <string name="additional_email_title">Adresse e-mail</string>
+    <string name="additional_email_input">JeanClaude@VanDamme.xyz</string>
 	
     <string name="additional_remarks_title">Commentaires</string>
+    <string name="additional_remarks_input">I like trains.</string>
 
     <string name="btn_cancel">@android:string/cancel</string>
     <string name="btn_ok">@android:string/ok</string>

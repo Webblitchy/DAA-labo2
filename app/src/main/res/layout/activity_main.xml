@@ -300,6 +300,52 @@
             cancel_button,
             ok_button" />
 
+    <TextView
+        android:id="@+id/additional_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/additional_title"
+        app:layout_constraintTop_toBottomOf="@+id/barrier_before_complementary"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textAllCaps="true" />
+
+    <TextView
+        android:id="@+id/additional_email_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/additional_title"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/additional_email_title" />
+
+    <EditText
+        android:id="@+id/additional_email_input"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/additional_email_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/barrier"
+        android:hint="@string/additional_email_input"
+        android:inputType="textEmailAddress" />
+
+    <TextView
+        android:id="@+id/additional_remarks_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/additional_email_title"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/additional_remarks_title" />
+
+    <EditText
+        android:id="@+id/additional_remarks_input"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        app:layout_constraintTop_toBottomOf="@+id/additional_remarks_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/barrier"
+        app:layout_constraintStart_toStartOf="parent"
+        android:hint="@string/additional_remarks_input"
+        android:inputType="textEmailAddress" />
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
