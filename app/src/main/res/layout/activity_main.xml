@@ -323,7 +323,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@+id/additional_email_title"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/barrier"
+        app:layout_constraintStart_toEndOf="@id/guideline"
         android:hint="@string/additional_email_input"
         android:inputType="textEmailAddress" />
 
@@ -341,7 +341,6 @@
         android:layout_height="90dp"
         app:layout_constraintTop_toBottomOf="@+id/additional_remarks_title"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/barrier"
         app:layout_constraintStart_toStartOf="parent"
         android:hint="@string/additional_remarks_input"
         android:inputType="textEmailAddress" />
@@ -350,12 +349,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/cancel_button"
+        app:layout_constraintTop_toBottomOf="@+id/additional_remarks_input"
+
+        app:layout_constraintStart_toStartOf="parent"
         android:text="@string/btn_cancel"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/ok_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/cancel_button"
         android:text="@string/btn_ok"/>
 
 
