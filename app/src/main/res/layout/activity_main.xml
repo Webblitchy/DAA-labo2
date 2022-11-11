@@ -242,8 +242,22 @@
         android:id="@+id/complementary_data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:constraint_referenced_ids="" />
+        android:visibility="visible"
+        app:constraint_referenced_ids="
+            cancel_button,
+            ok_button" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cancel_button"
+        android:text="@string/btn_cancel"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ok_button"
+        android:text="@string/btn_ok"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
