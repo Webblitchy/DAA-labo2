@@ -20,9 +20,9 @@
         main_base_occupation_title,
         main_specific_compagny_title,
         main_specific_experience_title,
+        main_specific_school_title,
         main_specific_graduationyear_title,
         main_specific_sector_title,
-        main_specific_students_title,
         main_specific_workers_title" />
 
     <androidx.constraintlayout.widget.Group
