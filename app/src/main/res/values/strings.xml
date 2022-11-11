@@ -28,7 +28,9 @@
 
     <string name="main_specific_students_title">Données spécifiques (étudiants)</string>
     <string name="main_specific_school_title">Ecole/Université</string>
+    <string name="main_specific_school_input">EPFL-VD</string>
     <string name="main_specific_graduationyear_title">Année du diplôme</string>
+    <string name="main_specific_graduationyear_input">5700 B.C</string>
 
     <string name="main_specific_workers_title">Données spécifiques (employé)</string>
     <string name="main_specific_compagny_title">Entreprise</string>

@@ -13,7 +13,17 @@
         android:layout_height="wrap_content"
         app:barrierDirection="end"
         app:barrierMargin="5dp"
-        app:constraint_referenced_ids="main_base_birthdate_title, main_base_firstname_title, main_base_name_title, main_base_nationality_title, main_base_occupation_title, main_specific_compagny_title, main_specific_experience_title, main_specific_graduationyear_title, main_specific_school_title, main_specific_sector_title, main_specific_students_title, main_specific_workers_title" />
+        app:constraint_referenced_ids="main_base_birthdate_title,
+        main_base_firstname_title,
+        main_base_name_title,
+        main_base_nationality_title,
+        main_base_occupation_title,
+        main_specific_compagny_title,
+        main_specific_experience_title,
+        main_specific_graduationyear_title,
+        main_specific_sector_title,
+        main_specific_students_title,
+        main_specific_workers_title" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/base_data"
@@ -137,7 +147,7 @@
         android:id="@+id/student_data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
+        android:visibility="visible"
         app:constraint_referenced_ids="
             main_specific_students_title,
             main_specific_school_title,
@@ -151,30 +161,41 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/main_specific_students_title"
+        app:layout_constraintTop_toBottomOf="@+id/occupation"
         android:textAllCaps="true" />
 
     <TextView
         android:id="@+id/main_specific_school_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/main_specific_school_title" />
+        android:text="@string/main_specific_school_title"
+        app:layout_constraintTop_toBottomOf="@+id/main_specific_students_title" />
 
     <EditText
         android:id="@+id/main_specific_school_input"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:inputType="text" />
+        android:hint="@string/main_specific_school_input"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="@id/main_specific_school_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/barrier" />
 
     <TextView
         android:id="@+id/main_specific_graduationyear_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/main_specific_school_title" />
+        app:layout_constraintTop_toBottomOf="@+id/main_specific_school_title"
+        android:text="@string/main_specific_graduationyear_title" />
 
     <EditText
         android:id="@+id/main_specific_graduationyear_input"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/main_specific_graduationyear_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/barrier"
+        android:hint="@string/main_specific_graduationyear_input"
         android:inputType="numberDecimal" />
 
     <!-- Worker data -->
@@ -253,8 +274,22 @@
         android:id="@+id/complementary_data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:constraint_referenced_ids="" />
+        android:visibility="visible"
+        app:constraint_referenced_ids="
+            cancel_button,
+            ok_button" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cancel_button"
+        android:text="@string/btn_cancel"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ok_button"
+        android:text="@string/btn_ok"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
