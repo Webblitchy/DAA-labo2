@@ -28,7 +28,8 @@
         android:text="@string/main_base_title"
         android:textAllCaps="true"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/title_margin_top"/>
 
     <TextView
         android:id="@+id/main_base_name_title"
@@ -36,7 +37,8 @@
         android:layout_height="wrap_content"
         android:text="@string/main_base_name_title"
         app:layout_constraintTop_toBottomOf="@+id/main_base_title"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/title_margin_top"/>
 
     <EditText
         android:id="@+id/main_base_name_input"
@@ -55,7 +57,8 @@
         android:layout_height="wrap_content"
         android:text="@string/main_base_firstname_title"
         app:layout_constraintTop_toBottomOf="@+id/main_base_name_title"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/title_margin_top"/>
 
     <EditText
         android:id="@+id/main_base_firstname_input"
@@ -74,7 +77,8 @@
         android:layout_height="wrap_content"
         android:text="@string/main_base_birthdate_title"
         app:layout_constraintTop_toBottomOf="@+id/main_base_firstname_title"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/title_margin_top"/>
 
     <EditText
         android:id="@+id/main_base_birthdate_input"
@@ -99,7 +103,8 @@
         android:layout_height="wrap_content"
         android:text="@string/main_base_nationality_title"
         app:layout_constraintTop_toBottomOf="@+id/main_base_birthdate_title"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/title_margin_top"/>
 
     <Spinner
         android:id="@+id/main_base_nationality_input"
@@ -115,14 +120,16 @@
         android:layout_height="wrap_content"
         android:text="@string/main_base_occupation_title"
         app:layout_constraintTop_toBottomOf="@+id/main_base_nationality_title"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/title_margin_top"/>
 
     <RadioGroup
         android:id="@+id/occupation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/main_base_nationality_title"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/title_margin_top">
 
         <RadioButton
             android:id="@+id/student"
@@ -161,7 +168,8 @@
         android:text="@string/main_specific_students_title"
         app:layout_constraintTop_toBottomOf="@+id/occupation"
         android:textAllCaps="true"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/title_margin_top"/>
 
     <TextView
         android:id="@+id/main_specific_school_title"
@@ -169,7 +177,8 @@
         android:layout_height="wrap_content"
         android:text="@string/main_specific_school_title"
         app:layout_constraintTop_toBottomOf="@+id/main_specific_students_title"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/title_margin_top"/>
 
     <EditText
         android:id="@+id/main_specific_school_input"
@@ -187,7 +196,8 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/main_specific_school_title"
         android:text="@string/main_specific_graduationyear_title"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/title_margin_top"/>
 
     <EditText
         android:id="@+id/main_specific_graduationyear_input"
@@ -223,7 +233,8 @@
         android:text="@string/main_specific_workers_title"
         app:layout_constraintTop_toBottomOf="@+id/main_specific_graduationyear_title"
         app:layout_constraintStart_toStartOf="parent"
-        android:textAllCaps="true" />
+        android:textAllCaps="true"
+        android:layout_marginTop="@dimen/title_margin_top"/>
 
     <TextView
         android:id="@+id/main_specific_compagny_title"
@@ -231,7 +242,8 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/main_specific_workers_title"
         android:text="@string/main_specific_compagny_title"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/title_margin_top"/>
 
     <EditText
         android:id="@+id/main_specific_compagny_input"
@@ -249,7 +261,8 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/main_specific_compagny_title"
         android:text="@string/main_specific_sector_title"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/title_margin_top"/>
 
     <Spinner
         android:id="@+id/main_specific_sector_input"
@@ -266,7 +279,8 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/main_specific_sector_title"
         android:text="@string/main_specific_experience_title"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/title_margin_top"/>
 
     <EditText
         android:id="@+id/main_specific_experience_input"
@@ -307,7 +321,8 @@
         android:text="@string/additional_title"
         app:layout_constraintTop_toBottomOf="@+id/barrier_before_complementary"
         app:layout_constraintStart_toStartOf="parent"
-        android:textAllCaps="true" />
+        android:textAllCaps="true"
+        android:layout_marginTop="@dimen/title_margin_top"/>
 
     <TextView
         android:id="@+id/additional_email_title"
@@ -315,7 +330,8 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/additional_title"
         app:layout_constraintStart_toStartOf="parent"
-        android:text="@string/additional_email_title" />
+        android:text="@string/additional_email_title"
+        android:layout_marginTop="@dimen/title_margin_top"/>
 
     <EditText
         android:id="@+id/additional_email_input"
@@ -333,7 +349,8 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/additional_email_title"
         app:layout_constraintStart_toStartOf="parent"
-        android:text="@string/additional_remarks_title" />
+        android:text="@string/additional_remarks_title"
+        android:layout_marginTop="@dimen/title_margin_top"/>
 
     <EditText
         android:id="@+id/additional_remarks_input"
@@ -352,7 +369,8 @@
         app:layout_constraintTop_toBottomOf="@+id/additional_remarks_input"
 
         app:layout_constraintStart_toStartOf="parent"
-        android:text="@string/btn_cancel"/>
+        android:text="@string/btn_cancel"
+        android:layout_marginTop="@dimen/title_margin_top"/>
 
     <Button
         android:layout_width="wrap_content"
