@@ -6,4 +6,5 @@
     <dimen name="guideline">150dp</dimen>
     <dimen name="barrier_margin">5dp</dimen>
     <dimen name="min_remarks_height">90dp</dimen>
+    <dimen name="buttons_margin">70dp</dimen>
 </resources>
