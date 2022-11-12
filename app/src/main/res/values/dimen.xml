@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="zero">0dip</dimen>
+    <dimen name="global_margin">10dp</dimen>
     <dimen name="title_margin_top">20dp</dimen>
+    <dimen name="guideline">150dp</dimen>
+    <dimen name="barrier_margin">5dp</dimen>
+    <dimen name="min_remarks_height">90dp</dimen>
 </resources>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="10dp"
+    android:layout_margin="@dimen/global_margin"
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.Guideline
@@ -12,14 +12,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="150dp" />
+        app:layout_constraintGuide_begin="@dimen/guideline" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/base_data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="visible"
-        app:constraint_referenced_ids="main_base_title, main_base_name_title, main_base_name_input, main_base_firstname_title, main_base_firstname_input, main_base_birthdate_title, main_base_birthdate_input, main_base_occupation_title, occupation, main_base_nationality_title, main_base_nationality_input" />
+        app:constraint_referenced_ids="main_base_title,
+        main_base_name_title,
+        main_base_name_input,
+        main_base_firstname_title,
+        main_base_firstname_input,
+        main_base_birthdate_title,
+        main_base_birthdate_input,
+        main_base_occupation_title,
+        occupation,
+        main_base_nationality_title,
+        main_base_nationality_input" />
 
     <TextView
         android:id="@+id/main_base_title"
@@ -41,7 +51,7 @@
 
     <EditText
         android:id="@+id/main_base_name_input"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/zero"
         android:layout_height="wrap_content"
         android:hint="@string/main_base_name_title"
         android:inputType="text"
@@ -81,7 +91,7 @@
 
     <EditText
         android:id="@+id/main_base_birthdate_input"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/zero"
         android:layout_height="wrap_content"
         android:inputType="none"
         app:layout_constraintBottom_toBottomOf="@id/main_base_birthdate_title"
@@ -107,7 +117,7 @@
 
     <Spinner
         android:id="@+id/main_base_nationality_input"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/zero"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@id/main_base_nationality_title"
         app:layout_constraintEnd_toEndOf="parent"
@@ -157,8 +167,7 @@
             main_specific_school_title,
             main_specific_school_input,
             main_specific_graduationyear_title,
-            main_specific_graduationyear_input
-    " />
+            main_specific_graduationyear_input" />
 
     <TextView
         android:id="@+id/main_specific_students_title"
@@ -181,7 +190,7 @@
 
     <EditText
         android:id="@+id/main_specific_school_input"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/zero"
         android:layout_height="wrap_content"
         android:hint="@string/main_specific_school_input"
         android:inputType="text"
@@ -200,7 +209,7 @@
 
     <EditText
         android:id="@+id/main_specific_graduationyear_input"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/zero"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@id/main_specific_graduationyear_title"
         app:layout_constraintEnd_toEndOf="parent"
@@ -222,8 +231,7 @@
             main_specific_sector_title,
             main_specific_sector_input,
             main_specific_experience_title,
-            main_specific_experience_input
-    " />
+            main_specific_experience_input" />
 
     <TextView
         android:id="@+id/main_specific_workers_title"
@@ -246,7 +254,7 @@
 
     <EditText
         android:id="@+id/main_specific_compagny_input"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/zero"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@+id/main_specific_compagny_title"
         app:layout_constraintEnd_toEndOf="parent"
@@ -265,7 +273,7 @@
 
     <Spinner
         android:id="@+id/main_specific_sector_input"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/zero"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@+id/main_specific_sector_title"
         app:layout_constraintEnd_toEndOf="parent"
@@ -283,7 +291,7 @@
 
     <EditText
         android:id="@+id/main_specific_experience_input"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/zero"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@+id/main_specific_experience_title"
         app:layout_constraintEnd_toEndOf="parent"
@@ -296,7 +304,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:barrierMargin="5dp"
+        app:barrierMargin="@dimen/barrier_margin"
         app:constraint_referenced_ids="occupation,
             main_specific_graduationyear_title,
             main_specific_experience_title"/>
@@ -334,7 +342,7 @@
 
     <EditText
         android:id="@+id/additional_email_input"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/zero"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@+id/additional_email_title"
         app:layout_constraintEnd_toEndOf="parent"
@@ -355,7 +363,7 @@
         android:id="@+id/additional_remarks_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="90dp"
+        android:minHeight="@dimen/min_remarks_height"
         app:layout_constraintTop_toBottomOf="@+id/additional_remarks_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
