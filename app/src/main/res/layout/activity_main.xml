@@ -373,7 +373,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/additional_remarks_input"
-            android:inputType="textMultiLine"
+            android:inputType="textMultiLine|textAutoCorrect"
             android:minHeight="@dimen/min_remarks_height"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
