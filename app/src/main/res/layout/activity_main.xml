@@ -131,7 +131,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="@id/main_base_nationality_title"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/guideline" />
+            app:layout_constraintStart_toEndOf="@id/guideline"/>
 
         <TextView
             android:id="@+id/main_base_occupation_title"
