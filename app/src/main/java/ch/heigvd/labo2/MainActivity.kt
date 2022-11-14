@@ -9,6 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.constraintlayout.widget.Group
+import java.text.SimpleDateFormat
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -160,16 +162,20 @@ class MainActivity : AppCompatActivity() {
         val selectedDate = findViewById<EditText>(R.id.main_base_birthdate_input)
 
         // create the dialog
+
+        val calendar = Calendar.getInstance()
         val birthdatePickerDialog = DatePickerDialog(
             this,
             R.style.MySpinnerDatePickerStyle, // use the defined style (for spinner mode)
             { view, year, monthOfYear, dayOfMonth ->
-                val displayedDate = dayOfMonth.toString() + "." + (monthOfYear + 1) + "." + year
-                selectedDate.setText(displayedDate)
+                val displayedDate = SimpleDateFormat("dd MMMM yyyy", Locale.FRANCE).format(calendar.time)
+            //val displayedDate = dayOfMonth.toString() + "." + (monthOfYear + 1) + "." + year
+
+            selectedDate.setText(displayedDate)
             },
-            Calendar.getInstance().get(Calendar.YEAR),
-            Calendar.getInstance().get(Calendar.MONTH),
-            Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
+            calendar.get(Calendar.YEAR),
+            calendar.get(Calendar.MONTH),
+            calendar.get(Calendar.DAY_OF_MONTH)
         )
 
         // ajout du dialog sur les listener
