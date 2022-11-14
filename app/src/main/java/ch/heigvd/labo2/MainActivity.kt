@@ -41,6 +41,32 @@ class MainActivity : AppCompatActivity() {
         val okButton = findViewById<Button>(R.id.ok_button)
         val cancelButton = findViewById<Button>(R.id.cancel_button)
 
+        val inputFields = arrayOf(
+            lastnameField,
+            firstnameField,
+            birthdateField,
+            schoolField,
+            graduationYearField,
+            companyField,
+            experienceField,
+            emailField,
+            remarksField,
+        )
+
+        val inputSpinners = arrayOf(
+            nationalitySpinner,
+            sectorSpinner,
+        )
+
+        fun clear_inputs() {
+            for (elem in inputFields) {
+                elem.text = null
+            }
+            for (elem in inputSpinners) {
+                elem.setSelection(0)
+            }
+        }
+
         // Hide part of the UI depending on the user type
         occupationRadioGroup.setOnCheckedChangeListener { _, id ->
             when (id) {
@@ -230,7 +256,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         cancelButton.setOnClickListener {
-            // TODO: Should clear ALL input fields
+            // Clear ALL input fields
+            clear_inputs()
+
         }
 
     }
