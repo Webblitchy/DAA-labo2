@@ -3,7 +3,6 @@ package ch.heigvd.labo2
 import android.app.DatePickerDialog
 import android.graphics.Color
 import android.icu.text.SimpleDateFormat
-import android.icu.util.Calendar
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
@@ -11,7 +10,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.constraintlayout.widget.Group
+import java.text.ParseException
 import java.util.*
+import java.util.Calendar
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -69,6 +70,8 @@ class MainActivity : AppCompatActivity() {
             }
             occupationRadioGroup.clearCheck()
         }
+
+        val simpleDateFormat = SimpleDateFormat("dd MMMM yyyy", Locale.FRANCE)
 
         // Hide part of the UI depending on the user type
         occupationRadioGroup.setOnCheckedChangeListener { _, id ->
@@ -196,7 +199,7 @@ class MainActivity : AppCompatActivity() {
                 val cal = Calendar.getInstance()
                 cal.set(year, monthOfYear, dayOfMonth)
 
-                val displayedDate = SimpleDateFormat("dd MMMM yyyy", Locale.FRANCE).format(cal.time)
+                val displayedDate = simpleDateFormat.format(cal.time)
                 birthdateField.setText(displayedDate)
             },
             calendar.get(Calendar.YEAR),
@@ -214,54 +217,145 @@ class MainActivity : AppCompatActivity() {
         }
 
         okButton.setOnClickListener {
-            // Assert core data are valid
-            if (
-                TextUtils.isEmpty(lastnameField.text.toString()) ||
-                TextUtils.isEmpty(firstnameField.text.toString()) ||
-                TextUtils.isEmpty(birthdateField.text.toString()) ||
-                nationalitySpinner.selectedItem == null ||
-                occupationRadioGroup.checkedRadioButtonId == -1 ||
-                TextUtils.isEmpty(emailField.text.toString())
-            ) {
+            val lastname = lastnameField.text.toString()
+            if (TextUtils.isEmpty(lastname)) {
                 Toast
-                    .makeText(this, "Missing core information", Toast.LENGTH_SHORT)
+                    .makeText(this, "Veuillez entrer votre nom", Toast.LENGTH_SHORT)
                     .show()
                 return@setOnClickListener
             }
 
+            val firstname = firstnameField.text.toString()
+            if (TextUtils.isEmpty(firstname)) {
+                Toast
+                    .makeText(this, "Veuillez entrer votre prénom", Toast.LENGTH_SHORT)
+                    .show()
+                return@setOnClickListener
+            }
+
+            // birthday
+            try {
+                calendar.time = simpleDateFormat.parse(birthdateField.text.toString())
+            }  catch (e : ParseException) {
+                Toast
+                    .makeText(this, "Veuillez entrer votre date de naissance", Toast.LENGTH_SHORT)
+                    .show()
+                return@setOnClickListener
+            }
+
+            if (nationalitySpinner.selectedItemId == 0L) {
+                Toast
+                    .makeText(this, "Veuillez séléctionner votre nationalité", Toast.LENGTH_SHORT)
+                    .show()
+                return@setOnClickListener
+            }
+            val nationality = nationalitySpinner.selectedItem.toString()
+
+            val email = emailField.text.toString()
+            if (TextUtils.isEmpty(email)) {
+                Toast
+                    .makeText(this, "Veuillez entrer votre adresse email", Toast.LENGTH_SHORT)
+                    .show()
+                return@setOnClickListener
+            }
+            // TODO: regex validation email
+
+            val remark = remarksField.text.toString()
+            // La remarque est optionnelle.
+
+            val person : Person
+
             // Assert specific data are valid
             when (occupationRadioGroup.checkedRadioButtonId) {
-                // TODO: Check for valid student data
                 R.id.student -> {
-                    if (
-                        TextUtils.isEmpty(schoolField.text.toString()) ||
-                        TextUtils.isEmpty(graduationYearField.text.toString())
-                    ) {
+                    val university = schoolField.text.toString()
+                    if (TextUtils.isEmpty(university)) {
                         Toast
-                            .makeText(this, "Missing student information", Toast.LENGTH_SHORT)
+                            .makeText(this, "Veuillez entrer le nom de votre université", Toast.LENGTH_SHORT)
                             .show()
                         return@setOnClickListener
                     }
+
+                    val graduationYear : Int
+                    try {
+                        val graduationYearStr = graduationYearField.text.toString()
+                        if (TextUtils.isEmpty(graduationYearStr)) {
+                            Toast.makeText(this, "Veuillez entrer l'année du diplôme", Toast.LENGTH_SHORT).show()
+                            return@setOnClickListener
+                        }
+                        graduationYear = graduationYearField.text.toString().toInt()
+                    }  catch (e : java.lang.NumberFormatException) {
+                        Toast.makeText(this, "L'année du diplôme est invalide", Toast.LENGTH_SHORT).show()
+                        return@setOnClickListener
+                    }
+
+                    person = Student(
+                        lastname,
+                        firstname,
+                        calendar,
+                        nationality,
+                        university,
+                        graduationYear,
+                        email,
+                        remark
+                    )
                 }
 
-                // TODO: Check for valid worker data
                 R.id.employee -> {
-                    if (
-                        TextUtils.isEmpty(companyField.text.toString()) ||
-                        TextUtils.isEmpty(experienceField.text.toString()) ||
-                        sectorSpinner.selectedItem == null
-                    ) {
+                    val compagny = companyField.text.toString()
+                    if (TextUtils.isEmpty(compagny)) {
                         Toast
-                            .makeText(this, "Missing worker information", Toast.LENGTH_SHORT)
+                            .makeText(this, "Veuillez entrer votre entreprise", Toast.LENGTH_SHORT)
                             .show()
                         return@setOnClickListener
                     }
+
+                    val sector = sectorSpinner.selectedItem.toString()
+                    if (TextUtils.isEmpty(sector)) {
+                        Toast
+                            .makeText(this, "Veuillez séléctionner votre secteur", Toast.LENGTH_SHORT)
+                            .show()
+                        return@setOnClickListener
+                    }
+
+                    val experienceYear : Int
+                    try {
+                        val experienceYearStr = experienceField.text.toString()
+                        if (TextUtils.isEmpty(experienceYearStr)) {
+                            Toast.makeText(this, "Veuillez entrer votre nombre d'années d'expérience", Toast.LENGTH_SHORT).show()
+                            return@setOnClickListener
+                        }
+                        experienceYear = experienceYearStr.toInt()
+                    }  catch (e : java.lang.NumberFormatException) {
+                        Toast.makeText(this, "Le nombre d'années d'expérience est invalide", Toast.LENGTH_SHORT).show()
+                        return@setOnClickListener
+                    }
+
+                    person = Worker(
+                        lastname,
+                        firstname,
+                        calendar,
+                        nationality,
+                        compagny,
+                        sector,
+                        experienceYear,
+                        email,
+                        remark
+                    )
                 }
 
                 // No need to check for empty selction, case is covered beforehand
+                else ->  {
+                    Toast
+                        .makeText(this, "Veuillez séléctionner votre occupation", Toast.LENGTH_SHORT)
+                        .show()
+                    return@setOnClickListener
+                }
             }
 
-            // TODO: Create a new Person instance from the data and log it
+            Toast
+                .makeText(this, person.toString(), Toast.LENGTH_SHORT)
+                .show()
         }
 
         cancelButton.setOnClickListener {
