@@ -2,14 +2,15 @@ package ch.heigvd.labo2
 
 import android.app.DatePickerDialog
 import android.graphics.Color
+import android.icu.text.SimpleDateFormat
 import android.icu.util.Calendar
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.constraintlayout.widget.Group
-import java.text.SimpleDateFormat
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -17,32 +18,59 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
         // Fetch all interactable views, starting with common fields
-        val lastname = findViewById<EditText>(R.id.main_base_name_input)
-        val firstname = findViewById<EditText>(R.id.main_base_firstname_input)
-        val birthday = findViewById<EditText>(R.id.main_base_birthdate_input)
-        val nationality = findViewById<Spinner>(R.id.main_base_nationality_input)
-        val radioGroup = findViewById<RadioGroup>(R.id.occupation)
+        val lastnameField = findViewById<EditText>(R.id.main_base_name_input)
+        val firstnameField = findViewById<EditText>(R.id.main_base_firstname_input)
+        val birthdateField = findViewById<EditText>(R.id.main_base_birthdate_input)
+        val cakeButton = findViewById<ImageButton>(R.id.cake_button)
+        val nationalitySpinner = findViewById<Spinner>(R.id.main_base_nationality_input)
+        val occupationRadioGroup = findViewById<RadioGroup>(R.id.occupation)
         val studentGroup = findViewById<Group>(R.id.student_data)
         val workerGroup = findViewById<Group>(R.id.worker_data)
 
         // Student-specific fields
-        val school = findViewById<EditText>(R.id.main_specific_school_input)
-        val graduationYear = findViewById<EditText>(R.id.main_specific_graduationyear_input)
+        val schoolField = findViewById<EditText>(R.id.main_specific_school_input)
+        val graduationYearField = findViewById<EditText>(R.id.main_specific_graduationyear_input)
 
         // Worker-specific fields
-        val company = findViewById<EditText>(R.id.main_specific_compagny_input)
-        val sector = findViewById<Spinner>(R.id.main_specific_sector_input)
-        val experience = findViewById<EditText>(R.id.main_specific_experience_input)
+        val companyField = findViewById<EditText>(R.id.main_specific_compagny_input)
+        val sectorSpinner = findViewById<Spinner>(R.id.main_specific_sector_input)
+        val experienceField = findViewById<EditText>(R.id.main_specific_experience_input)
 
-        // And finally the additional fields
-        val email = findViewById<EditText>(R.id.additional_email_input)
-        val remarks = findViewById<EditText>(R.id.additional_remarks_input)
+        // And finally additional fields
+        val emailField = findViewById<EditText>(R.id.additional_email_input)
+        val remarksField = findViewById<EditText>(R.id.additional_remarks_input)
         val okButton = findViewById<Button>(R.id.ok_button)
         val cancelButton = findViewById<Button>(R.id.cancel_button)
 
-        radioGroup.setOnCheckedChangeListener { _, id ->
+        val inputFields = arrayOf(
+            lastnameField,
+            firstnameField,
+            birthdateField,
+            schoolField,
+            graduationYearField,
+            companyField,
+            experienceField,
+            emailField,
+            remarksField,
+        )
+
+        val inputSpinners = arrayOf(
+            nationalitySpinner,
+            sectorSpinner,
+        )
+
+        fun clear_inputs() {
+            for (elem in inputFields) {
+                elem.text = null
+            }
+            for (elem in inputSpinners) {
+                elem.setSelection(0)
+            }
+        }
+
+        // Hide part of the UI depending on the user type
+        occupationRadioGroup.setOnCheckedChangeListener { _, id ->
             when (id) {
                 R.id.student -> {
                     studentGroup.visibility = View.VISIBLE
@@ -85,10 +113,10 @@ class MainActivity : AppCompatActivity() {
 
         spinnerAdapterNationnality.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
-        nationality.adapter = spinnerAdapterNationnality
+        nationalitySpinner.adapter = spinnerAdapterNationnality
 
         var nationnalitySelected : String
-        nationality.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
+        nationalitySpinner.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
 
@@ -134,10 +162,10 @@ class MainActivity : AppCompatActivity() {
 
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
-        sector.adapter = spinnerAdapter
+        sectorSpinner.adapter = spinnerAdapter
 
         var sectorSelected : String
-        sector.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
+        sectorSpinner.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
 
@@ -156,11 +184,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-
-        // Date picker
-        val pickDateBtn = findViewById<ImageButton>(R.id.cake_button)
-        val selectedDate = findViewById<EditText>(R.id.main_base_birthdate_input)
-
         // create the dialog
 
         val calendar = Calendar.getInstance()
@@ -169,9 +192,7 @@ class MainActivity : AppCompatActivity() {
             R.style.MySpinnerDatePickerStyle, // use the defined style (for spinner mode)
             { view, year, monthOfYear, dayOfMonth ->
                 val displayedDate = SimpleDateFormat("dd MMMM yyyy", Locale.FRANCE).format(calendar.time)
-            //val displayedDate = dayOfMonth.toString() + "." + (monthOfYear + 1) + "." + year
-
-            selectedDate.setText(displayedDate)
+                birthdateField.setText(displayedDate)
             },
             calendar.get(Calendar.YEAR),
             calendar.get(Calendar.MONTH),
@@ -179,17 +200,63 @@ class MainActivity : AppCompatActivity() {
         )
 
         // ajout du dialog sur les listener
-        pickDateBtn.setOnClickListener {
+        cakeButton.setOnClickListener {
             birthdatePickerDialog.show()
         }
 
-        selectedDate.setOnClickListener {
+        birthdateField.setOnClickListener {
             birthdatePickerDialog.show()
         }
-
 
         okButton.setOnClickListener {
-            // TODO: Should create a new instance of Student/Worker & print it in logs
+            // Assert core data are valid
+            if (
+                TextUtils.isEmpty(lastnameField.text.toString()) ||
+                TextUtils.isEmpty(firstnameField.text.toString()) ||
+                TextUtils.isEmpty(birthdateField.text.toString()) ||
+                nationalitySpinner.selectedItem == null ||
+                occupationRadioGroup.checkedRadioButtonId == -1 ||
+                TextUtils.isEmpty(emailField.text.toString())
+            ) {
+                Toast
+                    .makeText(this, "Missing core information", Toast.LENGTH_SHORT)
+                    .show()
+                return@setOnClickListener
+            }
+
+            // Assert specific data are valid
+            when (occupationRadioGroup.checkedRadioButtonId) {
+                // TODO: Check for valid student data
+                R.id.student -> {
+                    if (
+                        TextUtils.isEmpty(schoolField.text.toString()) ||
+                        TextUtils.isEmpty(graduationYearField.text.toString())
+                    ) {
+                        Toast
+                            .makeText(this, "Missing student information", Toast.LENGTH_SHORT)
+                            .show()
+                        return@setOnClickListener
+                    }
+                }
+
+                // TODO: Check for valid worker data
+                R.id.employee -> {
+                    if (
+                        TextUtils.isEmpty(companyField.text.toString()) ||
+                        TextUtils.isEmpty(experienceField.text.toString()) ||
+                        sectorSpinner.selectedItem == null
+                    ) {
+                        Toast
+                            .makeText(this, "Missing worker information", Toast.LENGTH_SHORT)
+                            .show()
+                        return@setOnClickListener
+                    }
+                }
+
+                // No need to check for empty selction, case is covered beforehand
+            }
+
+            // TODO: Create a new Person instance from the data and log it
         }
 
         cancelButton.setOnClickListener {
