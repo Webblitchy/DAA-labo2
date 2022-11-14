@@ -310,13 +310,13 @@ class MainActivity : AppCompatActivity() {
                         return@setOnClickListener
                     }
 
-                    val sector = sectorSpinner.selectedItem.toString()
-                    if (TextUtils.isEmpty(sector)) {
+                    if (sectorSpinner.selectedItemId == 0L) {
                         Toast
                             .makeText(this, "Veuillez séléctionner votre secteur", Toast.LENGTH_SHORT)
                             .show()
                         return@setOnClickListener
                     }
+                    val sector = sectorSpinner.selectedItem.toString()
 
                     val experienceYear : Int
                     try {
