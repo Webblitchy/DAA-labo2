@@ -67,6 +67,7 @@ class MainActivity : AppCompatActivity() {
             for (elem in inputSpinners) {
                 elem.setSelection(0)
             }
+            occupationRadioGroup.clearCheck()
         }
 
         // Hide part of the UI depending on the user type
