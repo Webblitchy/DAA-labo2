@@ -306,7 +306,7 @@
             android:layout_width="@dimen/zero"
             android:layout_height="wrap_content"
             android:hint="@string/main_specific_experience_input"
-            android:inputType="text"
+            android:inputType="numberDecimal"
             app:layout_constraintBaseline_toBaselineOf="@+id/main_specific_experience_title"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/guideline" />
