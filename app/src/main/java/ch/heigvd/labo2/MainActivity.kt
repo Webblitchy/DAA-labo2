@@ -352,9 +352,12 @@ class MainActivity : AppCompatActivity() {
                     return@setOnClickListener
                 }
             }
+            // On log la personne
+            println(person.toString())
 
+            // Message pour l'utilisateur
             Toast
-                .makeText(this, person.toString(), Toast.LENGTH_SHORT)
+                .makeText(this, "Les données ont été ajoutées à la base de données !", Toast.LENGTH_SHORT)
                 .show()
         }
 
