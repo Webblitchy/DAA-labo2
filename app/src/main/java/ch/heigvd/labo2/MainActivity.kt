@@ -16,11 +16,27 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-        // Set interaction of radio buttons
+        // Fetch all interactable views, starting with common fields
+        val lastname = findViewById<EditText>(R.id.main_base_name_input)
+        val firstname = findViewById<EditText>(R.id.main_base_firstname_input)
+        val birthday = findViewById<EditText>(R.id.main_base_birthdate_input)
+        val nationality = findViewById<Spinner>(R.id.main_base_nationality_input)
         val radioGroup = findViewById<RadioGroup>(R.id.occupation)
         val studentGroup = findViewById<Group>(R.id.student_data)
         val workerGroup = findViewById<Group>(R.id.worker_data)
 
+        // Student-specific fields
+        val school = findViewById<EditText>(R.id.main_specific_school_input)
+        val graduationYear = findViewById<EditText>(R.id.main_specific_graduationyear_input)
+
+        // Worker-specific fields
+        val company = findViewById<EditText>(R.id.main_specific_compagny_input)
+        val sector = findViewById<Spinner>(R.id.main_specific_sector_input)
+        val experience = findViewById<EditText>(R.id.main_specific_experience_input)
+
+        // And finally the additional fields
+        val email = findViewById<EditText>(R.id.additional_email_input)
+        val remarks = findViewById<EditText>(R.id.additional_remarks_input)
         val okButton = findViewById<Button>(R.id.ok_button)
         val cancelButton = findViewById<Button>(R.id.cancel_button)
 
@@ -43,7 +59,6 @@ class MainActivity : AppCompatActivity() {
 
         // Set nationnality spinner (using this answer : https://stackoverflow.com/a/64739753/10010580)
 
-        val spinnerNationnality = findViewById<Spinner>(R.id.main_base_nationality_input)
         val itemsNationnality = resources.getStringArray(R.array.nationalities)
 
 
@@ -68,10 +83,10 @@ class MainActivity : AppCompatActivity() {
 
         spinnerAdapterNationnality.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
-        spinnerNationnality.adapter = spinnerAdapterNationnality
+        nationality.adapter = spinnerAdapterNationnality
 
         var nationnalitySelected : String
-        spinnerNationnality.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
+        nationality.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
 
@@ -92,7 +107,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         // set sector spinner
-        val spinnerSector = findViewById<Spinner>(R.id.main_specific_sector_input)
         val sectorItems = resources.getStringArray(R.array.sectors)
 
 
@@ -118,10 +132,10 @@ class MainActivity : AppCompatActivity() {
 
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
-        spinnerSector.adapter = spinnerAdapter
+        sector.adapter = spinnerAdapter
 
         var sectorSelected : String
-        spinnerSector.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
+        sector.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
 
