@@ -64,7 +64,7 @@
             android:layout_width="@dimen/zero"
             android:layout_height="wrap_content"
             android:hint="@string/main_base_name_title"
-            android:inputType="text"
+            android:inputType="textCapSentences"
             app:layout_constraintBaseline_toBaselineOf="@id/main_base_name_title"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/guideline" />
@@ -85,7 +85,7 @@
             android:layout_height="wrap_content"
             android:layout_toEndOf="@id/main_base_firstname_title"
             android:hint="@string/main_base_firstname_title"
-            android:inputType="text"
+            android:inputType="textCapSentences"
             app:layout_constraintBaseline_toBaselineOf="@id/main_base_firstname_title"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/guideline" />
