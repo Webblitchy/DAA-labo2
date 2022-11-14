@@ -191,7 +191,11 @@ class MainActivity : AppCompatActivity() {
             this,
             R.style.MySpinnerDatePickerStyle, // use the defined style (for spinner mode)
             { view, year, monthOfYear, dayOfMonth ->
-                val displayedDate = SimpleDateFormat("dd MMMM yyyy", Locale.FRANCE).format(calendar.time)
+
+                val cal = Calendar.getInstance()
+                cal.set(year, monthOfYear, dayOfMonth)
+
+                val displayedDate = SimpleDateFormat("dd MMMM yyyy", Locale.FRANCE).format(cal.time)
                 birthdateField.setText(displayedDate)
             },
             calendar.get(Calendar.YEAR),
