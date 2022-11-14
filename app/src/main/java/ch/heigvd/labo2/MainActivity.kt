@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.icu.util.Calendar
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
@@ -21,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         val birthdateField = findViewById<EditText>(R.id.main_base_birthdate_input)
         val cakeButton = findViewById<ImageButton>(R.id.cake_button)
         val nationalitySpinner = findViewById<Spinner>(R.id.main_base_nationality_input)
-        val radioGroup = findViewById<RadioGroup>(R.id.occupation)
+        val occupationRadioGroup = findViewById<RadioGroup>(R.id.occupation)
         val studentGroup = findViewById<Group>(R.id.student_data)
         val workerGroup = findViewById<Group>(R.id.worker_data)
 
@@ -41,7 +42,7 @@ class MainActivity : AppCompatActivity() {
         val cancelButton = findViewById<Button>(R.id.cancel_button)
 
         // Hide part of the UI depending on the user type
-        radioGroup.setOnCheckedChangeListener { _, id ->
+        occupationRadioGroup.setOnCheckedChangeListener { _, id ->
             when (id) {
                 R.id.student -> {
                     studentGroup.visibility = View.VISIBLE
@@ -178,7 +179,54 @@ class MainActivity : AppCompatActivity() {
         }
 
         okButton.setOnClickListener {
-            // TODO: Should create a new instance of Student/Worker & print it in logs
+            // Assert core data are valid
+            if (
+                TextUtils.isEmpty(lastnameField.text.toString()) ||
+                TextUtils.isEmpty(firstnameField.text.toString()) ||
+                TextUtils.isEmpty(birthdateField.text.toString()) ||
+                nationalitySpinner.selectedItem == null ||
+                occupationRadioGroup.checkedRadioButtonId == -1 ||
+                TextUtils.isEmpty(emailField.text.toString())
+            ) {
+                Toast
+                    .makeText(this, "Missing core information", Toast.LENGTH_SHORT)
+                    .show()
+                return@setOnClickListener
+            }
+
+            // Assert specific data are valid
+            when (occupationRadioGroup.checkedRadioButtonId) {
+                // TODO: Check for valid student data
+                R.id.student -> {
+                    if (
+                        TextUtils.isEmpty(schoolField.text.toString()) ||
+                        TextUtils.isEmpty(graduationYearField.text.toString())
+                    ) {
+                        Toast
+                            .makeText(this, "Missing student information", Toast.LENGTH_SHORT)
+                            .show()
+                        return@setOnClickListener
+                    }
+                }
+
+                // TODO: Check for valid worker data
+                R.id.employee -> {
+                    if (
+                        TextUtils.isEmpty(companyField.text.toString()) ||
+                        TextUtils.isEmpty(experienceField.text.toString()) ||
+                        sectorSpinner.selectedItem == null
+                    ) {
+                        Toast
+                            .makeText(this, "Missing worker information", Toast.LENGTH_SHORT)
+                            .show()
+                        return@setOnClickListener
+                    }
+                }
+
+                // No need to check for empty selction, case is covered beforehand
+            }
+
+            // TODO: Create a new Person instance from the data and log it
         }
 
         cancelButton.setOnClickListener {
