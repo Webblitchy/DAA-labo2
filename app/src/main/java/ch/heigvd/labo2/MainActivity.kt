@@ -15,31 +15,32 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
         // Fetch all interactable views, starting with common fields
-        val lastname = findViewById<EditText>(R.id.main_base_name_input)
-        val firstname = findViewById<EditText>(R.id.main_base_firstname_input)
-        val birthday = findViewById<EditText>(R.id.main_base_birthdate_input)
-        val nationality = findViewById<Spinner>(R.id.main_base_nationality_input)
+        val lastnameField = findViewById<EditText>(R.id.main_base_name_input)
+        val firstnameField = findViewById<EditText>(R.id.main_base_firstname_input)
+        val birthdateField = findViewById<EditText>(R.id.main_base_birthdate_input)
+        val cakeButton = findViewById<ImageButton>(R.id.cake_button)
+        val nationalitySpinner = findViewById<Spinner>(R.id.main_base_nationality_input)
         val radioGroup = findViewById<RadioGroup>(R.id.occupation)
         val studentGroup = findViewById<Group>(R.id.student_data)
         val workerGroup = findViewById<Group>(R.id.worker_data)
 
         // Student-specific fields
-        val school = findViewById<EditText>(R.id.main_specific_school_input)
-        val graduationYear = findViewById<EditText>(R.id.main_specific_graduationyear_input)
+        val schoolField = findViewById<EditText>(R.id.main_specific_school_input)
+        val graduationYearField = findViewById<EditText>(R.id.main_specific_graduationyear_input)
 
         // Worker-specific fields
-        val company = findViewById<EditText>(R.id.main_specific_compagny_input)
-        val sector = findViewById<Spinner>(R.id.main_specific_sector_input)
-        val experience = findViewById<EditText>(R.id.main_specific_experience_input)
+        val companyField = findViewById<EditText>(R.id.main_specific_compagny_input)
+        val sectorSpinner = findViewById<Spinner>(R.id.main_specific_sector_input)
+        val experienceField = findViewById<EditText>(R.id.main_specific_experience_input)
 
-        // And finally the additional fields
-        val email = findViewById<EditText>(R.id.additional_email_input)
-        val remarks = findViewById<EditText>(R.id.additional_remarks_input)
+        // And finally additional fields
+        val emailField = findViewById<EditText>(R.id.additional_email_input)
+        val remarksField = findViewById<EditText>(R.id.additional_remarks_input)
         val okButton = findViewById<Button>(R.id.ok_button)
         val cancelButton = findViewById<Button>(R.id.cancel_button)
 
+        // Hide part of the UI depending on the user type
         radioGroup.setOnCheckedChangeListener { _, id ->
             when (id) {
                 R.id.student -> {
@@ -83,10 +84,10 @@ class MainActivity : AppCompatActivity() {
 
         spinnerAdapterNationnality.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
-        nationality.adapter = spinnerAdapterNationnality
+        nationalitySpinner.adapter = spinnerAdapterNationnality
 
         var nationnalitySelected : String
-        nationality.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
+        nationalitySpinner.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
 
@@ -132,10 +133,10 @@ class MainActivity : AppCompatActivity() {
 
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
-        sector.adapter = spinnerAdapter
+        sectorSpinner.adapter = spinnerAdapter
 
         var sectorSelected : String
-        sector.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
+        sectorSpinner.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
 
@@ -154,18 +155,13 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-
-        // Date picker
-        val pickDateBtn = findViewById<ImageButton>(R.id.cake_button)
-        val selectedDate = findViewById<EditText>(R.id.main_base_birthdate_input)
-
         // create the dialog
         val birthdatePickerDialog = DatePickerDialog(
             this,
             R.style.MySpinnerDatePickerStyle, // use the defined style (for spinner mode)
             { view, year, monthOfYear, dayOfMonth ->
                 val displayedDate = dayOfMonth.toString() + "." + (monthOfYear + 1) + "." + year
-                selectedDate.setText(displayedDate)
+                birthdateField.setText(displayedDate)
             },
             Calendar.getInstance().get(Calendar.YEAR),
             Calendar.getInstance().get(Calendar.MONTH),
@@ -173,14 +169,13 @@ class MainActivity : AppCompatActivity() {
         )
 
         // ajout du dialog sur les listener
-        pickDateBtn.setOnClickListener {
+        cakeButton.setOnClickListener {
             birthdatePickerDialog.show()
         }
 
-        selectedDate.setOnClickListener {
+        birthdateField.setOnClickListener {
             birthdatePickerDialog.show()
         }
-
 
         okButton.setOnClickListener {
             // TODO: Should create a new instance of Student/Worker & print it in logs
