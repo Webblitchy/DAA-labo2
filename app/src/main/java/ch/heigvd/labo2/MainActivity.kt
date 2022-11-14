@@ -1,14 +1,14 @@
 package ch.heigvd.labo2
 
+import android.app.DatePickerDialog
 import android.graphics.Color
+import android.icu.util.Calendar
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.constraintlayout.widget.Group
-import kotlin.math.log
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -138,7 +138,33 @@ class MainActivity : AppCompatActivity() {
                     sectorSelected = value
                 }
             }
+        }
 
+
+        // Date picker
+        val pickDateBtn = findViewById<ImageButton>(R.id.cake_button)
+        val selectedDate = findViewById<EditText>(R.id.main_base_birthdate_input)
+
+        // create the dialog
+        val birthdatePickerDialog = DatePickerDialog(
+            this,
+            R.style.MySpinnerDatePickerStyle, // use the defined style (for spinner mode)
+            { view, year, monthOfYear, dayOfMonth ->
+                val displayedDate = dayOfMonth.toString() + "." + (monthOfYear + 1) + "." + year
+                selectedDate.setText(displayedDate)
+            },
+            Calendar.getInstance().get(Calendar.YEAR),
+            Calendar.getInstance().get(Calendar.MONTH),
+            Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
+        )
+
+        // ajout du dialog sur les listener
+        pickDateBtn.setOnClickListener {
+            birthdatePickerDialog.show()
+        }
+
+        selectedDate.setOnClickListener {
+            birthdatePickerDialog.show()
         }
 
 

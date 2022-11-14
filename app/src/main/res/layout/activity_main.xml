@@ -104,6 +104,7 @@
             android:layout_width="@dimen/zero"
             android:layout_height="wrap_content"
             android:inputType="none"
+            android:focusable="false"
             app:layout_constraintBaseline_toBaselineOf="@id/main_base_birthdate_title"
             app:layout_constraintEnd_toStartOf="@+id/cake_button"
             app:layout_constraintStart_toEndOf="@id/guideline" />
