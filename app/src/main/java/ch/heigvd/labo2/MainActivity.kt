@@ -260,7 +260,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         cancelButton.setOnClickListener {
-            // TODO: Should clear ALL input fields
+            // Clear ALL input fields
+            clear_inputs()
         }
 
     }
