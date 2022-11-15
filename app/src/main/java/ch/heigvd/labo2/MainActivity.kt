@@ -256,7 +256,7 @@ class MainActivity : AppCompatActivity() {
             }
             if (Patterns.EMAIL_ADDRESS.matcher(email).matches())
             {
-                showToast("Veuillez entrer votre adresse email")
+                showToast("L'adresse email est invalide")
                 return@setOnClickListener
             }
 
