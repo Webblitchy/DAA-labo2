@@ -17,6 +17,8 @@ import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
+    val SPINNER_SELECT = 0L
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -68,7 +70,7 @@ class MainActivity : AppCompatActivity() {
                 elem.text = null
             }
             for (elem in inputSpinners) {
-                elem.setSelection(0)
+                elem.setSelection(SPINNER_SELECT.toInt())
             }
             occupationRadioGroup.clearCheck()
         }
@@ -152,7 +154,7 @@ class MainActivity : AppCompatActivity() {
             object : ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, sectorItems) {
 
                 override fun isEnabled(position: Int): Boolean { // if is not the hint
-                    return position != 0
+                    return position != SPINNER_SELECT.toInt()
                 }
 
                 override fun getDropDownView(
@@ -162,7 +164,7 @@ class MainActivity : AppCompatActivity() {
                 ): View {
                     val view: TextView =
                         super.getDropDownView(position, convertView, parent) as TextView
-                    if (position == 0) {
+                    if (position == SPINNER_SELECT.toInt()) {
                         view.setTextColor(Color.GRAY) // gray color for the hint
                     }
                     return view
@@ -243,7 +245,7 @@ class MainActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            if (nationalitySpinner.selectedItemId == 0L) {
+            if (nationalitySpinner.selectedItemId == SPINNER_SELECT) {
                 showToast("Veuillez séléctionner votre nationalité")
                 return@setOnClickListener
             }
@@ -306,7 +308,7 @@ class MainActivity : AppCompatActivity() {
                         return@setOnClickListener
                     }
 
-                    if (sectorSpinner.selectedItemId == 0L) {
+                    if (sectorSpinner.selectedItemId == SPINNER_SELECT) {
                         showToast("Veuillez séléctionner votre secteur")
                         return@setOnClickListener
                     }
