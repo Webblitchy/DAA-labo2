@@ -67,7 +67,8 @@
             android:inputType="textCapSentences"
             app:layout_constraintBaseline_toBaselineOf="@id/main_base_name_title"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/guideline" />
+            app:layout_constraintStart_toEndOf="@+id/guideline"
+            android:autofillHints="lastname" />
 
 
         <TextView
@@ -88,7 +89,8 @@
             android:inputType="textCapSentences"
             app:layout_constraintBaseline_toBaselineOf="@id/main_base_firstname_title"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/guideline" />
+            app:layout_constraintStart_toEndOf="@id/guideline"
+            android:autofillHints="firstname" />
 
         <TextView
             android:id="@+id/main_base_birthdate_title"
@@ -107,7 +109,8 @@
             android:focusable="false"
             app:layout_constraintBaseline_toBaselineOf="@id/main_base_birthdate_title"
             app:layout_constraintEnd_toStartOf="@+id/cake_button"
-            app:layout_constraintStart_toEndOf="@id/guideline" />
+            app:layout_constraintStart_toEndOf="@id/guideline"
+            android:autofillHints="birthdate" />
 
         <ImageButton
             android:id="@+id/cake_button"
@@ -116,7 +119,8 @@
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="@id/main_base_birthdate_input"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/main_base_birthdate_input" />
+            app:layout_constraintStart_toEndOf="@id/main_base_birthdate_input"
+            android:contentDescription="@string/cake" />
 
         <TextView
             android:id="@+id/main_base_nationality_title"
@@ -209,7 +213,8 @@
             android:inputType="text"
             app:layout_constraintBaseline_toBaselineOf="@id/main_specific_school_title"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/guideline" />
+            app:layout_constraintStart_toEndOf="@id/guideline"
+            android:autofillHints="school" />
 
         <TextView
             android:id="@+id/main_specific_graduationyear_title"
@@ -228,7 +233,8 @@
             android:inputType="numberDecimal"
             app:layout_constraintBaseline_toBaselineOf="@id/main_specific_graduationyear_title"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/guideline" />
+            app:layout_constraintStart_toEndOf="@id/guideline"
+            android:autofillHints="graduation year" />
 
         <!-- Worker data -->
 
@@ -273,7 +279,8 @@
             android:inputType="text"
             app:layout_constraintBaseline_toBaselineOf="@+id/main_specific_compagny_title"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/guideline" />
+            app:layout_constraintStart_toEndOf="@id/guideline"
+            android:autofillHints="company" />
 
         <TextView
             android:id="@+id/main_specific_sector_title"
@@ -309,7 +316,8 @@
             android:inputType="numberDecimal"
             app:layout_constraintBaseline_toBaselineOf="@+id/main_specific_experience_title"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/guideline" />
+            app:layout_constraintStart_toEndOf="@id/guideline"
+            android:autofillHints="experience" />
 
         <androidx.constraintlayout.widget.Barrier
             android:id="@+id/barrier_before_complementary"
@@ -360,7 +368,8 @@
             android:inputType="textEmailAddress"
             app:layout_constraintBaseline_toBaselineOf="@+id/additional_email_title"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/guideline" />
+            app:layout_constraintStart_toEndOf="@id/guideline"
+            android:autofillHints="emailAddress" />
 
         <TextView
             android:id="@+id/additional_remarks_title"
@@ -380,7 +389,8 @@
             android:minHeight="@dimen/min_remarks_height"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/additional_remarks_title" />
+            app:layout_constraintTop_toBottomOf="@+id/additional_remarks_title"
+            android:autofillHints="remarks" />
 
         <Button
             android:id="@+id/cancel_button"
