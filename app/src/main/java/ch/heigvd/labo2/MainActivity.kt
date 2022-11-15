@@ -396,8 +396,8 @@ class MainActivity : AppCompatActivity() {
 
 
         // CHANGE HERE to fill with an example person
-        //fillPerson(Person.exampleWorker)
-        fillPerson(Person.exampleStudent)
+        fillPerson(Person.exampleWorker)
+        //fillPerson(Person.exampleStudent)
     }
 
     private fun showToast(s: String) {
@@ -412,7 +412,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun getSpinnerIndex(spinner: Spinner, myString: String?): Int {
         for (i in 0 until spinner.count) {
-            if (spinner.getItemAtPosition(i).toString().equals(myString, ignoreCase = true)) {
+            if (spinner.getItemAtPosition(i).toString() == myString) {
                 return i
             }
         }
