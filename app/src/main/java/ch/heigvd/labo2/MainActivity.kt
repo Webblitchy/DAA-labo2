@@ -350,13 +350,7 @@ class MainActivity : AppCompatActivity() {
             Log.println(Log.INFO, null, person.toString())
 
             // Message pour l'utilisateur
-            Toast
-                .makeText(
-                    this,
-                    "Les données ont été ajoutées à la base de données !",
-                    Toast.LENGTH_SHORT
-                )
-                .show()
+            showToast("Les données ont été ajoutées à la base de données !")
         }
 
         cancelButton.setOnClickListener {
