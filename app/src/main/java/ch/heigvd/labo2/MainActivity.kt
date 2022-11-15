@@ -3,17 +3,18 @@ package ch.heigvd.labo2
 import android.app.DatePickerDialog
 import android.graphics.Color
 import android.icu.text.SimpleDateFormat
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
+import android.util.Patterns
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.Group
 import java.text.ParseException
 import java.util.*
-import java.util.Calendar
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -263,7 +264,13 @@ class MainActivity : AppCompatActivity() {
                     .show()
                 return@setOnClickListener
             }
-            // TODO: regex validation email
+            if (Patterns.EMAIL_ADDRESS.matcher(email).matches())
+            {
+                Toast
+                    .makeText(this, "Veuillez entrer votre adresse email", Toast.LENGTH_SHORT)
+                    .show()
+                return@setOnClickListener
+            }
 
             val remark = remarksField.text.toString()
             // La remarque est optionnelle.
