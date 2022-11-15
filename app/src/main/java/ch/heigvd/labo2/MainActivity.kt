@@ -136,11 +136,13 @@ class MainActivity : AppCompatActivity() {
                 position: Int,
                 id: Long
             ) {
+                // On screen rotation, this callback might be called with view set to null ???
+                // Whatever, we'll just return and dont try anything...
+                if (view == null) return
+
                 val value = parent!!.getItemAtPosition(position).toString()
                 if (value == itemsNationnality[0]) {
                     (view as TextView).setTextColor(Color.GRAY)
-                } else {
-                    nationnalitySelected = value
                 }
             }
 
