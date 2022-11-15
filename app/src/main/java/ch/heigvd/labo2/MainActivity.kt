@@ -206,7 +206,7 @@ class MainActivity : AppCompatActivity() {
         val birthdatePickerDialog = DatePickerDialog(
             this,
             R.style.MySpinnerDatePickerStyle, // use the defined style (for spinner mode)
-            { view, year, monthOfYear, dayOfMonth ->
+            { _, year, monthOfYear, dayOfMonth ->
 
                 val cal = Calendar.getInstance()
                 cal.set(year, monthOfYear, dayOfMonth)
@@ -243,7 +243,7 @@ class MainActivity : AppCompatActivity() {
 
             // birthday
             try {
-                calendar.time = dateFormat.parse(birthdateField.text.toString())
+                calendar.time = dateFormat.parse(birthdateField.text.toString()) as Date
             } catch (e: ParseException) {
                 showToast("Veuillez entrer votre date de naissance")
                 return@setOnClickListener
