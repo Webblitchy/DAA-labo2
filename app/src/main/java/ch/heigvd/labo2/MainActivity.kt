@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Fetch all interactable views, starting with common fields
+        // Fetch all interactive views, starting with common fields
         val lastnameField = findViewById<EditText>(R.id.main_base_name_input)
         val firstnameField = findViewById<EditText>(R.id.main_base_firstname_input)
         val birthdateField = findViewById<EditText>(R.id.main_base_birthdate_input)
@@ -115,7 +115,8 @@ class MainActivity : AppCompatActivity() {
         val spinnerAdapterNationnality = object :
             ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, itemsNationnality) {
 
-            override fun isEnabled(position: Int): Boolean { // if is not the hint
+            // disable click on the hint
+            override fun isEnabled(position: Int): Boolean {
                 return position != 0
             }
 
@@ -166,7 +167,8 @@ class MainActivity : AppCompatActivity() {
         val spinnerAdapter =
             object : ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, sectorItems) {
 
-                override fun isEnabled(position: Int): Boolean { // if is not the hint
+                // disable click on the hint
+                override fun isEnabled(position: Int): Boolean {
                     return position != SPINNER_SELECT.toInt()
                 }
 
