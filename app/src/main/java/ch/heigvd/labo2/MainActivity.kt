@@ -149,7 +149,7 @@ class MainActivity : AppCompatActivity() {
                 id: Long
             ) {
                 // On screen rotation, this callback might be called with view set to null ???
-                // Whatever, we'll just return and dont try anything...
+                // Whatever, we'll just return and don't try anything...
                 if (view == null) return
 
                 val value = parent!!.getItemAtPosition(position).toString()
@@ -210,7 +210,7 @@ class MainActivity : AppCompatActivity() {
 
         // create the dialog
 
-        val calendar = Calendar.getInstance()
+        val birthday = Calendar.getInstance()
         val birthdatePickerDialog = DatePickerDialog(
             this,
             R.style.MySpinnerDatePickerStyle, // use the defined style (for spinner mode)
@@ -222,9 +222,9 @@ class MainActivity : AppCompatActivity() {
                 val displayedDate = dateFormat.format(cal.time)
                 birthdateField.setText(displayedDate)
             },
-            calendar.get(Calendar.YEAR),
-            calendar.get(Calendar.MONTH),
-            calendar.get(Calendar.DAY_OF_MONTH)
+            birthday.get(Calendar.YEAR),
+            birthday.get(Calendar.MONTH),
+            birthday.get(Calendar.DAY_OF_MONTH)
         )
 
         // Add dialog on the listener
@@ -251,7 +251,7 @@ class MainActivity : AppCompatActivity() {
 
             // birthday
             try {
-                calendar.time = dateFormat.parse(birthdateField.text.toString()) as Date
+                birthday.time = dateFormat.parse(birthdateField.text.toString()) as Date
             } catch (e: ParseException) {
                 showToast(getString(R.string.input_birthdate))
                 return@setOnClickListener
@@ -275,7 +275,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             val remark = remarksField.text.toString()
-            // The remark is optionnal
+            // The remark is optional
 
             val person: Person
 
@@ -304,7 +304,7 @@ class MainActivity : AppCompatActivity() {
                     person = Student(
                         lastname,
                         firstname,
-                        calendar,
+                        birthday,
                         nationality,
                         university,
                         graduationYear,
@@ -314,8 +314,8 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.employee -> {
-                    val compagny = companyField.text.toString()
-                    if (TextUtils.isEmpty(compagny)) {
+                    val company = companyField.text.toString()
+                    if (TextUtils.isEmpty(company)) {
                         showToast(getString(R.string.input_company))
                         return@setOnClickListener
                     }
@@ -342,9 +342,9 @@ class MainActivity : AppCompatActivity() {
                     person = Worker(
                         lastname,
                         firstname,
-                        calendar,
+                        birthday,
                         nationality,
-                        compagny,
+                        company,
                         sector,
                         experienceYear,
                         email,
@@ -352,7 +352,7 @@ class MainActivity : AppCompatActivity() {
                     )
                 }
 
-                // No need to check for empty selction, case is covered beforehand
+                // No need to check for empty selection, case is covered beforehand
                 else -> {
                     showToast(getString(R.string.input_occupation))
                     return@setOnClickListener
