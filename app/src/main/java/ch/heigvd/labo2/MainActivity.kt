@@ -127,7 +127,6 @@ class MainActivity : AppCompatActivity() {
 
         nationalitySpinner.adapter = spinnerAdapterNationnality
 
-        var nationnalitySelected: String
         nationalitySpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
@@ -180,7 +179,6 @@ class MainActivity : AppCompatActivity() {
 
         sectorSpinner.adapter = spinnerAdapter
 
-        var sectorSelected: String
         sectorSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
@@ -194,8 +192,6 @@ class MainActivity : AppCompatActivity() {
                 val value = parent!!.getItemAtPosition(position).toString()
                 if (value == sectorItems[0]) {
                     (view as TextView).setTextColor(Color.GRAY)
-                } else {
-                    sectorSelected = value
                 }
             }
         }
