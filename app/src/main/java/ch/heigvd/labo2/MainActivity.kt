@@ -6,6 +6,7 @@ import android.icu.text.SimpleDateFormat
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
@@ -353,7 +354,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             // On log la personne
-            println(person.toString())
+            Log.println(Log.INFO, null, person.toString())
 
             // Message pour l'utilisateur
             Toast
