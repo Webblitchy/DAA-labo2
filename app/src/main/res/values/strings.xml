@@ -89,4 +89,20 @@
     <string name="btn_ok">@android:string/ok</string>
     <string name="cake">cake</string>
 
+    <string name="input_lastname">Veuillez entrer votre nom</string>
+    <string name="input_firstname">Veuillez entrer votre prénom</string>
+    <string name="input_birthdate">Veuillez entrer votre date de naissance</string>
+    <string name="input_nationnality">Veuillez sélectionner votre nationalité</string>
+    <string name="input_email">Veuillez entrer votre adresse email</string>
+    <string name="bad_email">L\'adresse email est invalide</string>
+    <string name="input_university">Veuillez entrer le nom de votre université</string>
+    <string name="input_graduation_year">Veuillez entrer l\'année du diplôme</string>
+    <string name="bad_graduation_year">L\'année du diplôme est invalide</string>
+    <string name="input_company">Veuillez entrer votre entreprise</string>
+    <string name="input_sector">Veuillez sélectionner votre secteur</string>
+    <string name="input_experience">Veuillez entrer votre nombre d\'années d\'expérience</string>
+    <string name="bad_experience">Le nombre d\'années d\'expérience est invalide</string>
+    <string name="input_occupation">Veuillez sélectionner votre occupation</string>
+    <string name="data_added">Les données ont été ajoutées à la base de données !</string>
+
 </resources>

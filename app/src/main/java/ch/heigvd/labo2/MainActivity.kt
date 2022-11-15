@@ -237,13 +237,13 @@ class MainActivity : AppCompatActivity() {
         okButton.setOnClickListener {
             val lastname = lastnameField.text.toString()
             if (TextUtils.isEmpty(lastname)) {
-                showToast("Veuillez entrer votre nom")
+                showToast(getString(R.string.input_lastname))
                 return@setOnClickListener
             }
 
             val firstname = firstnameField.text.toString()
             if (TextUtils.isEmpty(firstname)) {
-                showToast("Veuillez entrer votre prénom")
+                showToast(getString(R.string.input_firstname))
                 return@setOnClickListener
             }
 
@@ -251,24 +251,24 @@ class MainActivity : AppCompatActivity() {
             try {
                 calendar.time = dateFormat.parse(birthdateField.text.toString()) as Date
             } catch (e: ParseException) {
-                showToast("Veuillez entrer votre date de naissance")
+                showToast(getString(R.string.input_birthdate))
                 return@setOnClickListener
             }
 
             if (nationalitySpinner.selectedItemId == SPINNER_SELECT) {
-                showToast("Veuillez séléctionner votre nationalité")
+                showToast(getString(R.string.input_nationnality))
                 return@setOnClickListener
             }
             val nationality = nationalitySpinner.selectedItem.toString()
 
             val email = emailField.text.toString()
             if (TextUtils.isEmpty(email)) {
-                showToast("Veuillez entrer votre adresse email")
+                showToast(getString(R.string.input_email))
                 return@setOnClickListener
             }
             if (!Patterns.EMAIL_ADDRESS.matcher(email).matches())
             {
-                showToast("L'adresse email est invalide")
+                showToast(getString(R.string.bad_email))
                 return@setOnClickListener
             }
 
@@ -282,7 +282,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.student -> {
                     val university = schoolField.text.toString()
                     if (TextUtils.isEmpty(university)) {
-                        showToast("Veuillez entrer le nom de votre université")
+                        showToast(getString(R.string.input_university))
                         return@setOnClickListener
                     }
 
@@ -290,12 +290,12 @@ class MainActivity : AppCompatActivity() {
                     try {
                         val graduationYearStr = graduationYearField.text.toString()
                         if (TextUtils.isEmpty(graduationYearStr)) {
-                            showToast("Veuillez entrer l'année du diplôme")
+                            showToast(getString(R.string.input_graduation_year))
                             return@setOnClickListener
                         }
                         graduationYear = graduationYearField.text.toString().toInt()
                     } catch (e: java.lang.NumberFormatException) {
-                        showToast("L'année du diplôme est invalide")
+                        showToast(getString(R.string.bad_graduation_year))
                         return@setOnClickListener
                     }
 
@@ -314,12 +314,12 @@ class MainActivity : AppCompatActivity() {
                 R.id.employee -> {
                     val compagny = companyField.text.toString()
                     if (TextUtils.isEmpty(compagny)) {
-                        showToast("Veuillez entrer votre entreprise")
+                        showToast(getString(R.string.input_company))
                         return@setOnClickListener
                     }
 
                     if (sectorSpinner.selectedItemId == SPINNER_SELECT) {
-                        showToast("Veuillez séléctionner votre secteur")
+                        showToast(getString(R.string.input_sector))
                         return@setOnClickListener
                     }
                     val sector = sectorSpinner.selectedItem.toString()
@@ -328,12 +328,12 @@ class MainActivity : AppCompatActivity() {
                     try {
                         val experienceYearStr = experienceField.text.toString()
                         if (TextUtils.isEmpty(experienceYearStr)) {
-                            showToast("Veuillez entrer votre nombre d'années d'expérience")
+                            showToast(getString(R.string.input_experience))
                             return@setOnClickListener
                         }
                         experienceYear = experienceYearStr.toInt()
                     } catch (e: java.lang.NumberFormatException) {
-                        showToast("Le nombre d'années d'expérience est invalide")
+                        showToast(getString(R.string.bad_experience))
                         return@setOnClickListener
                     }
 
@@ -352,15 +352,15 @@ class MainActivity : AppCompatActivity() {
 
                 // No need to check for empty selction, case is covered beforehand
                 else -> {
-                    showToast("Veuillez séléctionner votre occupation")
+                    showToast(getString(R.string.input_occupation))
                     return@setOnClickListener
                 }
             }
             // We log the person
-            Log.println(Log.INFO, null, person.toString())
+            Log.i("Person Object", person.toString())
 
             // Notifies the user
-            showToast("Les données ont été ajoutées à la base de données !")
+            showToast(getString(R.string.data_added))
         }
 
         cancelButton.setOnClickListener {
