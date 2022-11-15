@@ -15,7 +15,11 @@ import java.text.DateFormat
 import java.text.ParseException
 import java.util.*
 
-
+/*
+ * Authors : Eliott Chytil, Maxim Golay & Lucien Perregaux
+ *
+ * Controls the View and the Model.
+ */
 class MainActivity : AppCompatActivity() {
     val SPINNER_SELECT = 0L
 
@@ -215,7 +219,7 @@ class MainActivity : AppCompatActivity() {
             calendar.get(Calendar.DAY_OF_MONTH)
         )
 
-        // ajout du dialog sur les listener
+        // Add dialog on the listener
         cakeButton.setOnClickListener {
             birthdatePickerDialog.show()
         }
@@ -263,7 +267,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             val remark = remarksField.text.toString()
-            // La remarque est optionnelle.
+            // The remark is optionnal
 
             val person: Person
 
@@ -346,10 +350,10 @@ class MainActivity : AppCompatActivity() {
                     return@setOnClickListener
                 }
             }
-            // On log la personne
+            // We log the person
             Log.println(Log.INFO, null, person.toString())
 
-            // Message pour l'utilisateur
+            // Notifies the user
             showToast("Les données ont été ajoutées à la base de données !")
         }
 
