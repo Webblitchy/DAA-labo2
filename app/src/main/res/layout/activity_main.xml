@@ -63,12 +63,12 @@
             android:id="@+id/main_base_name_input"
             android:layout_width="@dimen/zero"
             android:layout_height="wrap_content"
+            android:autofillHints="lastname"
             android:hint="@string/main_base_name_title"
             android:inputType="textCapSentences"
             app:layout_constraintBaseline_toBaselineOf="@id/main_base_name_title"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/guideline"
-            android:autofillHints="lastname" />
+            app:layout_constraintStart_toEndOf="@+id/guideline" />
 
 
         <TextView
@@ -85,12 +85,12 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_toEndOf="@id/main_base_firstname_title"
+            android:autofillHints="firstname"
             android:hint="@string/main_base_firstname_title"
             android:inputType="textCapSentences"
             app:layout_constraintBaseline_toBaselineOf="@id/main_base_firstname_title"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/guideline"
-            android:autofillHints="firstname" />
+            app:layout_constraintStart_toEndOf="@id/guideline" />
 
         <TextView
             android:id="@+id/main_base_birthdate_title"
@@ -105,22 +105,22 @@
             android:id="@+id/main_base_birthdate_input"
             android:layout_width="@dimen/zero"
             android:layout_height="wrap_content"
-            android:inputType="none"
+            android:autofillHints="birthdate"
             android:focusable="false"
+            android:inputType="none"
             app:layout_constraintBaseline_toBaselineOf="@id/main_base_birthdate_title"
             app:layout_constraintEnd_toStartOf="@+id/cake_button"
-            app:layout_constraintStart_toEndOf="@id/guideline"
-            android:autofillHints="birthdate" />
+            app:layout_constraintStart_toEndOf="@id/guideline" />
 
         <ImageButton
             android:id="@+id/cake_button"
-            android:src="@drawable/cake"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/cake"
+            android:src="@drawable/cake"
             app:layout_constraintBottom_toBottomOf="@id/main_base_birthdate_input"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/main_base_birthdate_input"
-            android:contentDescription="@string/cake" />
+            app:layout_constraintStart_toEndOf="@id/main_base_birthdate_input" />
 
         <TextView
             android:id="@+id/main_base_nationality_title"
@@ -137,7 +137,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="@id/main_base_nationality_title"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/guideline"/>
+            app:layout_constraintStart_toEndOf="@id/guideline" />
 
         <TextView
             android:id="@+id/main_base_occupation_title"
@@ -150,10 +150,10 @@
 
         <RadioGroup
             android:id="@+id/occupation"
-            android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/title_margin_top"
+            android:orientation="horizontal"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/main_base_nationality_title">
 
@@ -209,12 +209,12 @@
             android:id="@+id/main_specific_school_input"
             android:layout_width="@dimen/zero"
             android:layout_height="wrap_content"
+            android:autofillHints="school"
             android:hint="@string/main_specific_school_input"
             android:inputType="text"
             app:layout_constraintBaseline_toBaselineOf="@id/main_specific_school_title"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/guideline"
-            android:autofillHints="school" />
+            app:layout_constraintStart_toEndOf="@id/guideline" />
 
         <TextView
             android:id="@+id/main_specific_graduationyear_title"
@@ -229,12 +229,12 @@
             android:id="@+id/main_specific_graduationyear_input"
             android:layout_width="@dimen/zero"
             android:layout_height="wrap_content"
+            android:autofillHints="graduation year"
             android:hint="@string/main_specific_graduationyear_input"
             android:inputType="numberDecimal"
             app:layout_constraintBaseline_toBaselineOf="@id/main_specific_graduationyear_title"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/guideline"
-            android:autofillHints="graduation year" />
+            app:layout_constraintStart_toEndOf="@id/guideline" />
 
         <!-- Worker data -->
 
@@ -275,12 +275,12 @@
             android:id="@+id/main_specific_compagny_input"
             android:layout_width="@dimen/zero"
             android:layout_height="wrap_content"
+            android:autofillHints="company"
             android:hint="@string/main_specific_compagny_input"
             android:inputType="text"
             app:layout_constraintBaseline_toBaselineOf="@+id/main_specific_compagny_title"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/guideline"
-            android:autofillHints="company" />
+            app:layout_constraintStart_toEndOf="@id/guideline" />
 
         <TextView
             android:id="@+id/main_specific_sector_title"
@@ -312,12 +312,12 @@
             android:id="@+id/main_specific_experience_input"
             android:layout_width="@dimen/zero"
             android:layout_height="wrap_content"
+            android:autofillHints="experience"
             android:hint="@string/main_specific_experience_input"
             android:inputType="numberDecimal"
             app:layout_constraintBaseline_toBaselineOf="@+id/main_specific_experience_title"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/guideline"
-            android:autofillHints="experience" />
+            app:layout_constraintStart_toEndOf="@id/guideline" />
 
         <androidx.constraintlayout.widget.Barrier
             android:id="@+id/barrier_before_complementary"
@@ -364,12 +364,12 @@
             android:id="@+id/additional_email_input"
             android:layout_width="@dimen/zero"
             android:layout_height="wrap_content"
+            android:autofillHints="emailAddress"
             android:hint="@string/additional_email_input"
             android:inputType="textEmailAddress"
             app:layout_constraintBaseline_toBaselineOf="@+id/additional_email_title"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/guideline"
-            android:autofillHints="emailAddress" />
+            app:layout_constraintStart_toEndOf="@id/guideline" />
 
         <TextView
             android:id="@+id/additional_remarks_title"
@@ -384,32 +384,34 @@
             android:id="@+id/additional_remarks_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autofillHints="remarks"
             android:hint="@string/additional_remarks_input"
             android:inputType="textMultiLine|textAutoCorrect"
             android:minHeight="@dimen/min_remarks_height"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/additional_remarks_title"
-            android:autofillHints="remarks" />
+            app:layout_constraintTop_toBottomOf="@+id/additional_remarks_title" />
 
         <Button
             android:id="@+id/cancel_button"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/zero"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/buttons_margin"
-            android:layout_marginTop="@dimen/title_margin_top"
+
+            android:layout_margin="@dimen/buttons_margin"
             android:text="@string/btn_cancel"
+            app:layout_constraintEnd_toStartOf="@id/ok_button"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/additional_remarks_input" />
 
         <Button
             android:id="@+id/ok_button"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/zero"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/buttons_margin"
+            android:layout_margin="@dimen/buttons_margin"
             android:text="@string/btn_ok"
             app:layout_constraintBaseline_toBaselineOf="@id/cancel_button"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/cancel_button" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
