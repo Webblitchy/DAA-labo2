@@ -19,6 +19,11 @@ import java.util.*
  * Authors : Eliott Chytil, Maxim Golay & Lucien Perregaux
  *
  * Controls the View and the Model.
+ * - Validates the inputs
+ * - Shows DatePickers on click
+ * - Clear the inputs
+ * - Creates a Person
+ * - Manages the visibles groups (areas) depending on the selected radio button
  */
 class MainActivity : AppCompatActivity() {
     val SPINNER_SELECT = 0L
@@ -54,6 +59,7 @@ class MainActivity : AppCompatActivity() {
         val okButton = findViewById<Button>(R.id.ok_button)
         val cancelButton = findViewById<Button>(R.id.cancel_button)
 
+        // All fields
         val inputFields = arrayOf(
             lastnameField,
             firstnameField,
@@ -66,11 +72,13 @@ class MainActivity : AppCompatActivity() {
             remarksField,
         )
 
+        // All spinners
         val inputSpinners = arrayOf(
             nationalitySpinner,
             sectorSpinner,
         )
 
+        // Clear all inputs
         fun clearInputs() {
             for (elem in inputFields) {
                 elem.text = null
@@ -101,10 +109,8 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        // Set nationnality spinner (using this answer : https://stackoverflow.com/a/64739753/10010580)
-
+        // Set nationality spinner (using this answer : https://stackoverflow.com/a/64739753/10010580)
         val itemsNationnality = resources.getStringArray(R.array.nationalities)
-
 
         val spinnerAdapterNationnality = object :
             ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, itemsNationnality) {
