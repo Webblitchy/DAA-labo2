@@ -97,7 +97,8 @@ class MainActivity : AppCompatActivity() {
         val itemsNationnality = resources.getStringArray(R.array.nationalities)
 
 
-        val spinnerAdapterNationnality = object : ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, itemsNationnality) {
+        val spinnerAdapterNationnality = object :
+            ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, itemsNationnality) {
 
             override fun isEnabled(position: Int): Boolean { // if is not the hint
                 return position != 0
@@ -108,7 +109,8 @@ class MainActivity : AppCompatActivity() {
                 convertView: View?,
                 parent: ViewGroup
             ): View {
-                val view: TextView = super.getDropDownView(position, convertView, parent) as TextView
+                val view: TextView =
+                    super.getDropDownView(position, convertView, parent) as TextView
                 if (position == 0) {
                     view.setTextColor(Color.GRAY) // gray color for the hint
                 }
@@ -120,8 +122,8 @@ class MainActivity : AppCompatActivity() {
 
         nationalitySpinner.adapter = spinnerAdapterNationnality
 
-        var nationnalitySelected : String
-        nationalitySpinner.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
+        var nationnalitySelected: String
+        nationalitySpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
 
@@ -132,7 +134,7 @@ class MainActivity : AppCompatActivity() {
                 id: Long
             ) {
                 val value = parent!!.getItemAtPosition(position).toString()
-                if(value == itemsNationnality[0]){
+                if (value == itemsNationnality[0]) {
                     (view as TextView).setTextColor(Color.GRAY)
                 } else {
                     nationnalitySelected = value
@@ -145,32 +147,34 @@ class MainActivity : AppCompatActivity() {
         val sectorItems = resources.getStringArray(R.array.sectors)
 
 
-        val spinnerAdapter = object : ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, sectorItems) {
+        val spinnerAdapter =
+            object : ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, sectorItems) {
 
-            override fun isEnabled(position: Int): Boolean { // if is not the hint
-                return position != 0
-            }
-
-            override fun getDropDownView(
-                position: Int,
-                convertView: View?,
-                parent: ViewGroup
-            ): View {
-                val view: TextView = super.getDropDownView(position, convertView, parent) as TextView
-                if (position == 0) {
-                    view.setTextColor(Color.GRAY) // gray color for the hint
+                override fun isEnabled(position: Int): Boolean { // if is not the hint
+                    return position != 0
                 }
-                return view
+
+                override fun getDropDownView(
+                    position: Int,
+                    convertView: View?,
+                    parent: ViewGroup
+                ): View {
+                    val view: TextView =
+                        super.getDropDownView(position, convertView, parent) as TextView
+                    if (position == 0) {
+                        view.setTextColor(Color.GRAY) // gray color for the hint
+                    }
+                    return view
+                }
             }
-        }
 
 
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
         sectorSpinner.adapter = spinnerAdapter
 
-        var sectorSelected : String
-        sectorSpinner.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
+        var sectorSelected: String
+        sectorSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
 
@@ -181,7 +185,7 @@ class MainActivity : AppCompatActivity() {
                 id: Long
             ) {
                 val value = parent!!.getItemAtPosition(position).toString()
-                if(value == sectorItems[0]){
+                if (value == sectorItems[0]) {
                     (view as TextView).setTextColor(Color.GRAY)
                 } else {
                     sectorSelected = value
@@ -237,7 +241,7 @@ class MainActivity : AppCompatActivity() {
             // birthday
             try {
                 calendar.time = simpleDateFormat.parse(birthdateField.text.toString())
-            }  catch (e : ParseException) {
+            } catch (e: ParseException) {
                 Toast
                     .makeText(this, "Veuillez entrer votre date de naissance", Toast.LENGTH_SHORT)
                     .show()
@@ -264,7 +268,7 @@ class MainActivity : AppCompatActivity() {
             val remark = remarksField.text.toString()
             // La remarque est optionnelle.
 
-            val person : Person
+            val person: Person
 
             // Assert specific data are valid
             when (occupationRadioGroup.checkedRadioButtonId) {
@@ -272,21 +276,30 @@ class MainActivity : AppCompatActivity() {
                     val university = schoolField.text.toString()
                     if (TextUtils.isEmpty(university)) {
                         Toast
-                            .makeText(this, "Veuillez entrer le nom de votre université", Toast.LENGTH_SHORT)
+                            .makeText(
+                                this,
+                                "Veuillez entrer le nom de votre université",
+                                Toast.LENGTH_SHORT
+                            )
                             .show()
                         return@setOnClickListener
                     }
 
-                    val graduationYear : Int
+                    val graduationYear: Int
                     try {
                         val graduationYearStr = graduationYearField.text.toString()
                         if (TextUtils.isEmpty(graduationYearStr)) {
-                            Toast.makeText(this, "Veuillez entrer l'année du diplôme", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                this,
+                                "Veuillez entrer l'année du diplôme",
+                                Toast.LENGTH_SHORT
+                            ).show()
                             return@setOnClickListener
                         }
                         graduationYear = graduationYearField.text.toString().toInt()
-                    }  catch (e : java.lang.NumberFormatException) {
-                        Toast.makeText(this, "L'année du diplôme est invalide", Toast.LENGTH_SHORT).show()
+                    } catch (e: java.lang.NumberFormatException) {
+                        Toast.makeText(this, "L'année du diplôme est invalide", Toast.LENGTH_SHORT)
+                            .show()
                         return@setOnClickListener
                     }
 
@@ -313,22 +326,34 @@ class MainActivity : AppCompatActivity() {
 
                     if (sectorSpinner.selectedItemId == 0L) {
                         Toast
-                            .makeText(this, "Veuillez séléctionner votre secteur", Toast.LENGTH_SHORT)
+                            .makeText(
+                                this,
+                                "Veuillez séléctionner votre secteur",
+                                Toast.LENGTH_SHORT
+                            )
                             .show()
                         return@setOnClickListener
                     }
                     val sector = sectorSpinner.selectedItem.toString()
 
-                    val experienceYear : Int
+                    val experienceYear: Int
                     try {
                         val experienceYearStr = experienceField.text.toString()
                         if (TextUtils.isEmpty(experienceYearStr)) {
-                            Toast.makeText(this, "Veuillez entrer votre nombre d'années d'expérience", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                this,
+                                "Veuillez entrer votre nombre d'années d'expérience",
+                                Toast.LENGTH_SHORT
+                            ).show()
                             return@setOnClickListener
                         }
                         experienceYear = experienceYearStr.toInt()
-                    }  catch (e : java.lang.NumberFormatException) {
-                        Toast.makeText(this, "Le nombre d'années d'expérience est invalide", Toast.LENGTH_SHORT).show()
+                    } catch (e: java.lang.NumberFormatException) {
+                        Toast.makeText(
+                            this,
+                            "Le nombre d'années d'expérience est invalide",
+                            Toast.LENGTH_SHORT
+                        ).show()
                         return@setOnClickListener
                     }
 
@@ -346,9 +371,13 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 // No need to check for empty selction, case is covered beforehand
-                else ->  {
+                else -> {
                     Toast
-                        .makeText(this, "Veuillez séléctionner votre occupation", Toast.LENGTH_SHORT)
+                        .makeText(
+                            this,
+                            "Veuillez séléctionner votre occupation",
+                            Toast.LENGTH_SHORT
+                        )
                         .show()
                     return@setOnClickListener
                 }
@@ -358,7 +387,11 @@ class MainActivity : AppCompatActivity() {
 
             // Message pour l'utilisateur
             Toast
-                .makeText(this, "Les données ont été ajoutées à la base de données !", Toast.LENGTH_SHORT)
+                .makeText(
+                    this,
+                    "Les données ont été ajoutées à la base de données !",
+                    Toast.LENGTH_SHORT
+                )
                 .show()
         }
 
