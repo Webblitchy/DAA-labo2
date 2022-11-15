@@ -77,7 +77,7 @@ class MainActivity : AppCompatActivity() {
             occupationRadioGroup.clearCheck()
         }
 
-        val dateFormat = DateFormat.getDateInstance(DateFormat.LONG);
+        val dateFormat = DateFormat.getDateInstance(DateFormat.MEDIUM);
 
         // Hide part of the UI depending on the user type
         occupationRadioGroup.setOnCheckedChangeListener { _, id ->
