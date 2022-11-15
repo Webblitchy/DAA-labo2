@@ -47,7 +47,7 @@ abstract class Person(var name: String,
                 set(Calendar.MONTH, Calendar.APRIL)
                 set(Calendar.DAY_OF_MONTH, 8)
             },
-            "Allemand",
+            "Allemande",
             "HEIG-VD",
             2023,
             "m.dreher@email.com",

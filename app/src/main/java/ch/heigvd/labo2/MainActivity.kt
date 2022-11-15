@@ -2,7 +2,6 @@ package ch.heigvd.labo2
 
 import android.app.DatePickerDialog
 import android.graphics.Color
-import android.icu.text.SimpleDateFormat
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
@@ -12,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.Group
+import java.text.DateFormat
 import java.text.ParseException
 import java.util.*
 
@@ -30,6 +30,8 @@ class MainActivity : AppCompatActivity() {
         val cakeButton = findViewById<ImageButton>(R.id.cake_button)
         val nationalitySpinner = findViewById<Spinner>(R.id.main_base_nationality_input)
         val occupationRadioGroup = findViewById<RadioGroup>(R.id.occupation)
+        val studentRadioButton = findViewById<RadioButton>(R.id.student)
+        val employeeRadioButton = findViewById<RadioButton>(R.id.employee)
         val studentGroup = findViewById<Group>(R.id.student_data)
         val workerGroup = findViewById<Group>(R.id.worker_data)
 
@@ -65,7 +67,7 @@ class MainActivity : AppCompatActivity() {
             sectorSpinner,
         )
 
-        fun clear_inputs() {
+        fun clearInputs() {
             for (elem in inputFields) {
                 elem.text = null
             }
@@ -75,7 +77,7 @@ class MainActivity : AppCompatActivity() {
             occupationRadioGroup.clearCheck()
         }
 
-        val simpleDateFormat = SimpleDateFormat("dd MMMM yyyy", Locale.FRANCE)
+        val dateFormat = DateFormat.getDateInstance(DateFormat.LONG);
 
         // Hide part of the UI depending on the user type
         occupationRadioGroup.setOnCheckedChangeListener { _, id ->
@@ -209,7 +211,7 @@ class MainActivity : AppCompatActivity() {
                 val cal = Calendar.getInstance()
                 cal.set(year, monthOfYear, dayOfMonth)
 
-                val displayedDate = simpleDateFormat.format(cal.time)
+                val displayedDate = dateFormat.format(cal.time)
                 birthdateField.setText(displayedDate)
             },
             calendar.get(Calendar.YEAR),
@@ -241,7 +243,7 @@ class MainActivity : AppCompatActivity() {
 
             // birthday
             try {
-                calendar.time = simpleDateFormat.parse(birthdateField.text.toString())
+                calendar.time = dateFormat.parse(birthdateField.text.toString())
             } catch (e: ParseException) {
                 showToast("Veuillez entrer votre date de naissance")
                 return@setOnClickListener
@@ -363,9 +365,39 @@ class MainActivity : AppCompatActivity() {
 
         cancelButton.setOnClickListener {
             // Clear ALL input fields
-            clear_inputs()
+            clearInputs()
         }
 
+
+        fun fillPerson(person: Person) {
+            lastnameField.setText(person.name)
+            firstnameField.setText(person.firstName)
+            birthdateField.setText(dateFormat.format(person.birthDay.time))
+            nationalitySpinner.setSelection(getSpinnerIndex(nationalitySpinner, person.nationality))
+            emailField.setText(Person.exampleWorker.email)
+            remarksField.setText(Person.exampleWorker.remark)
+
+            when (person.javaClass.simpleName.toString()) {
+                "Worker" -> {
+                    val worker : Worker = person as Worker
+                    employeeRadioButton.isChecked = true
+                    companyField.setText(worker.company)
+                    sectorSpinner.setSelection(getSpinnerIndex(sectorSpinner, Person.exampleWorker.sector))
+                    experienceField.setText(Person.exampleWorker.experienceYear.toString())
+                }
+                "Student" -> {
+                    val student : Student = person as Student
+                    studentRadioButton.isChecked = true
+                    schoolField.setText(student.university)
+                    graduationYearField.setText(student.graduationYear.toString())
+                }
+            }
+        }
+
+
+        // CHANGE HERE to fill with an example person
+        //fillPerson(Person.exampleWorker)
+        fillPerson(Person.exampleStudent)
     }
 
     private fun showToast(s: String) {
@@ -377,4 +409,14 @@ class MainActivity : AppCompatActivity() {
             )
             .show()
     }
+
+    private fun getSpinnerIndex(spinner: Spinner, myString: String?): Int {
+        for (i in 0 until spinner.count) {
+            if (spinner.getItemAtPosition(i).toString().equals(myString, ignoreCase = true)) {
+                return i
+            }
+        }
+        return 0
+    }
+
 }
